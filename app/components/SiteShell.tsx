@@ -31,6 +31,7 @@ const navigation = [
   {
     label: "Resources",
     links: [
+      ["Company overview", "/company"],
       ["FAQ", "/resources"],
       ["Contact us", "/contact"],
     ],
