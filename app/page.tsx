@@ -1,69 +1,23 @@
-import Image from "next/image";
+import Link from "next/link";
+
+const crops = ["Oil palm", "Soybeans", "Cocoa", "Cashew nuts", "Sesame seeds"];
+const steps = ["Farmer onboarding", "Farm support", "Field guidance", "Harvest collection", "Supply to buyers"];
 
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+  return <>
+    <main>
+      <section className="hero">
+        <div className="hero-copy"><span className="eyebrow light">ENABLING AGRICULTURE, FIRST FOR THE FARMERS</span><h1>Building the supply chain behind Africa’s <em>agro economy.</em></h1><p>Palms African turns smallholder harvests into reliable industrial supply, connecting the farmer who grows the crop to the factory that needs it.</p><div className="actions"><Link className="button button-lime" href="/farmer-support">Grow with us <span>↗</span></Link><Link className="button button-outline" href="/contact">Contact us</Link></div><div className="hero-note"><span>01</span> FARM TO FACTORY · NIGERIA</div></div>
+        <div className="hero-visual"><div className="hero-photo" role="img" aria-label="Palms African community and agriculture in Nigeria"/><div className="photo-caption"><span>Rooted in production</span><span>01 / 05</span></div><div className="hero-stamp">Growing<br/>together<br/><b>✳</b></div></div>
+      </section>
+      <section className="impact section-pad"><div className="section-kicker">OUR TRACTION</div><div className="impact-top"><h2>Results on<br/>the ground.</h2><p>Finance, supply and farmer reach delivered so far.</p></div><div className="stats"><div><strong>$30,000+</strong><span>Micro-credit to smallholder farmers (USD)</span></div><div><strong>10,000+</strong><span>Tonnes of raw materials delivered</span></div><div><strong>500+</strong><span>Farmers empowered</span></div></div><div className="sdg"><span>OUR SDG GOALS</span>{[["1","NO POVERTY"],["2","ZERO HUNGER"],["8","DECENT WORK AND ECONOMIC GROWTH"],["12","RESPONSIBLE CONSUMPTION AND PRODUCTION"]].map(([n,t])=><div className={`sdg-item sdg-${n}`} key={n}><b>{n}</b><span>{t}</span></div>)}</div></section>
+      <section className="recognition section-pad soft"><div className="section-kicker">RECOGNITION</div><div className="section-heading"><div><h2>Backed by respected networks.</h2><p>Our founder’s work has been recognised by leading entrepreneurship and business communities.</p></div><Link className="text-link" href="/our-story">Our story <span>↗</span></Link></div><div className="recognition-grid"><article className="recognition-card"><div className="rec-image rec-event"/><div className="rec-body"><span className="eyebrow">ORANGE CORNERS NIGERIA</span><h3>Orange Corners Nigeria, OCIF</h3><p>Palms African was named first runner-up at the Orange Corners Nigeria Innovation Fund Pitch Day in September 2024, winning €20,000.</p><a className="text-link" href="https://www.orangecorners.com/" target="_blank" rel="noreferrer">Read the announcement ↗</a></div></article><article className="recognition-card"><div className="rec-image rec-founder"/><div className="rec-body"><span className="eyebrow">COUNCIL FOR INCLUSIVE CAPITALISM</span><h3>Council for Inclusive Capitalism</h3><p>Our founder, Ezenwa Jeremiah, is a member of the Council for Inclusive Capitalism, a community of business leaders working toward a more inclusive economy.</p><a className="text-link" href="https://www.inclusivecapitalism.com/" target="_blank" rel="noreferrer">View member profile ↗</a></div></article></div></section>
+      <section className="model section-pad"><div className="section-kicker">OUR MODEL</div><div className="model-layout"><div><h2>Three engines,<br/><em>one chain.</em></h2><p>Finance, processing and a digital marketplace work together, from farm to factory. Funded farmers grow more, processing makes output saleable at scale, and the marketplace gives buyers dependable supply.</p><Link className="text-link" href="/what-we-do">Explore what we do ↗</Link></div><div className="engine-list">{[["01","Micro-credit","Cash, farm inputs or training, so every season starts properly resourced."],["02","Processing","We collect and process harvests into consistent agro raw materials."],["03","Digital marketplace","Producers connect directly to industrial buyers, with a shorter, clearer chain."]].map(([i,t,d])=><article className="engine" key={i}><span className="engine-num">{i}</span><div><h3>{t}</h3><p>{d}</p></div><span className="engine-arrow">↗</span></article>)}</div></div><div className="crops"><span>OUR FOCUS CROPS</span><div>{crops.map(c=><b key={c}><i/> {c}</b>)}</div></div></section>
+      <section className="approach section-pad soft"><div className="approach-intro"><div className="section-kicker">WHAT WE DO</div><h2>From the first farmer meeting to the <em>final delivery.</em></h2><p>We support the farm and the harvest together, so farmers earn more and buyers get dependable supply.</p><Link className="button button-dark" href="/our-approach">See our process <span>↗</span></Link></div><div className="steps">{steps.map((s,i)=><Link href="/our-approach" className="step" key={s}><span>0{i+1}</span><div><h3>{s}</h3><p>{["We record each farmer’s details and group farmers by community for better support and training.","We provide cash, farm inputs or training based on the farmer’s needs.","We advise farmers on good practices as the crop grows.","We receive the harvest, check quality and pay the farmer.","We deliver crops to processors and buyers. Loans are repaid from sales."][i]}</p></div><b>↗</b></Link>)}</div></section>
+      <section className="story section-pad"><div className="story-image"><div className="story-image-label">PALMS AFRICAN · LAGOS, NIGERIA</div></div><div className="story-copy"><div className="section-kicker">WHO WE ARE</div><h2>Making African agriculture more productive and more <em>profitable.</em></h2><p>Palms African Processing Ltd is an agritech company in Lagos, Nigeria. We finance smallholder farmers, process their harvests and link them to industrial buyers through a digital marketplace, creating value for farmers, buyers and investors at once.</p><Link className="button button-dark" href="/our-story">Learn more <span>↗</span></Link></div></section>
+      <section className="value-chain section-pad soft"><div className="section-kicker">HOW WE HELP</div><h2>We serve the whole value chain.</h2><p className="section-lede">Farmers, financiers and buyers all gain when the harvest is better.</p><div className="value-grid">{[["01","Farmers","Cash, inputs and training, plus a buyer for every harvest."],["02","Partners and financiers","A route to fund smallholder farming with clear visibility into how funds are used."],["03","Processors and buyers","Dependable supply of palm kernels, soybeans, cashew nuts and cocoa."]].map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div><div className="partners"><span className="section-kicker">OUR PARTNERS</span><h2>Working with organisations that<br/>share our mission.</h2><div className="partner-marks"><b>orange corners</b><b>HFAE<small> Foundation</small></b><b>Inclusive<br/>Capitalism</b><b>Palms African</b></div></div></section>
+      <section className="watch section-pad"><div className="section-kicker">WATCH</div><div className="watch-heading"><div><h2>See Palms African in action.</h2><p>Hear the story and see the work behind the numbers.</p></div><span className="eyebrow">FOUNDER’S STORY · 02:14</span></div><a className="video-poster" href="/our-story" aria-label="Read the story behind Palms African"><div className="play">▶</div><div><span>PALMS AFRICAN PROCESSING</span><h3>Building a more dependable agricultural value chain</h3></div><span className="video-cta">Explore our story ↗</span></a><div className="testimonials"><div><span className="section-kicker">TESTIMONIALS</span><h3>What farmers and buyers say.</h3></div><div className="quote-placeholder"><span>◉</span><b>Farmer testimonial</b><small>Video coming soon</small></div><div className="quote-placeholder"><span>◉</span><b>Buyer testimonial</b><small>Video coming soon</small></div></div></section>
+      <section className="cta"><div><span className="eyebrow light">A BETTER HARVEST STARTS WITH A CONVERSATION</span><h2>Grow with Palms African.</h2><p>Farmers, buyers and partners are all welcome.</p></div><Link href="/contact" className="button button-lime">Let’s talk <span>↗</span></Link></section>
+    </main>
+  </>;
 }
