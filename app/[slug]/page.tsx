@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -15,4 +17,104 @@ const pages: Record<string,{title:string;intro:string;sections:{eyebrow:string;t
 
 export function generateStaticParams(){return Object.keys(pages).map(slug=>({slug}));}
 export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;return {title:pages[slug]?.title??"Palms African"};}
-export default async function CorporatePage({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const page=pages[slug];if(!page)notFound();return <main className="inner-page"><section className="page-hero"><div className="section-kicker">PALMS AFRICAN PROCESSING LTD. <span> / </span> {slug.replaceAll("-"," ").toUpperCase()}</div><h1>{page.title}</h1><p>{page.intro}</p></section><div className="page-sections">{page.sections.map((s,i)=><section className="editorial-row" key={s.eyebrow}><span className="editorial-index">{String(i+1).padStart(2,"0")}</span><div><span className="section-kicker">{s.eyebrow}</span><h2>{s.title}</h2>{Array.isArray(s.body)?<ul>{s.body.map(x=><li key={x}>{x}</li>)}</ul>:<p>{s.body}</p>}</div></section>)}</div><section className="inner-cta"><h2>Let’s grow the value chain together.</h2><Link className="button button-lime" href="/contact">Contact our team <span>↗</span></Link></section></main>}
+
+type CorporatePageProps = { params: Promise<{ slug: string }> };
+
+const teamPhotos: Record<string, string[]> = {
+  "MANAGEMENT TEAM": [
+    "/assets/landing-ezenwa-jeremiah.jpg",
+    "/assets/landing-nnanke-ibor.jpg",
+    "/assets/landing-onyinyechi-nmecha.jpg",
+    "/assets/landing-nonso-ukadike.jpg",
+  ],
+  "ADVISORY BOARD": [
+    "/assets/landing-amala-umeike-esq.jpg",
+    "/assets/landing-dr-collins-igwe.jpg",
+    "/assets/landing-dr-frank-ngwu.jpg",
+  ],
+};
+
+function CorporatePageFallback() {
+  return (
+    <main className="inner-page" aria-busy="true">
+      <section className="page-hero">
+        <div className="section-kicker">PALMS AFRICAN PROCESSING LTD.</div>
+        <p>Loading this page…</p>
+      </section>
+    </main>
+  );
+}
+
+async function CorporatePageContent({ params }: CorporatePageProps) {
+  const { slug } = await params;
+  const page = pages[slug];
+  if (!page) notFound();
+
+  return (
+    <main className="inner-page">
+      <section className="page-hero">
+        <div className="section-kicker">
+          PALMS AFRICAN PROCESSING LTD. <span> / </span>{" "}
+          {slug.replaceAll("-", " ").toUpperCase()}
+        </div>
+        <h1>{page.title}</h1>
+        <p>{page.intro}</p>
+      </section>
+      <div className="page-sections">
+        {page.sections.map((section, index) => (
+          <section className="editorial-row" key={section.eyebrow}>
+            <span className="editorial-index">{String(index + 1).padStart(2, "0")}</span>
+            <div>
+              <span className="section-kicker">{section.eyebrow}</span>
+              <h2>{section.title}</h2>
+              {Array.isArray(section.body) ? (
+                <ul className={slug === "our-team" ? "team-list" : undefined}>
+                  {section.body.map((item, itemIndex) => {
+                    const photo =
+                      slug === "our-team"
+                        ? teamPhotos[section.eyebrow]?.[itemIndex]
+                        : undefined;
+
+                    return (
+                      <li
+                        className={slug === "our-team" ? "team-list-item" : undefined}
+                        key={item}
+                      >
+                        {photo && (
+                          <Image
+                            className="team-list-photo"
+                            src={photo}
+                            alt=""
+                            width={80}
+                            height={80}
+                          />
+                        )}
+                        <span>{item}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : (
+                <p>{section.body}</p>
+              )}
+            </div>
+          </section>
+        ))}
+      </div>
+      <section className="inner-cta">
+        <h2>Let’s grow the value chain together.</h2>
+        <Link className="button button-lime" href="/contact">
+          Contact our team <span>↗</span>
+        </Link>
+      </section>
+    </main>
+  );
+}
+
+export default function CorporatePage({ params }: CorporatePageProps) {
+  return (
+    <Suspense fallback={<CorporatePageFallback />}>
+      <CorporatePageContent params={params} />
+    </Suspense>
+  );
+}

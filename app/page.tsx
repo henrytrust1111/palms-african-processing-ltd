@@ -1,23 +1,378 @@
+import Image from "next/image";
 import Link from "next/link";
+import PartnersCarousel from "./components/PartnersCarousel";
 
-const crops = ["Oil palm", "Soybeans", "Cocoa", "Cashew nuts", "Sesame seeds"];
-const steps = ["Farmer onboarding", "Farm support", "Field guidance", "Harvest collection", "Supply to buyers"];
+const crops = [
+  ["🌴", "Oil palm"],
+  ["🫘", "Soybeans"],
+  ["🍫", "Cocoa"],
+  ["🥜", "Cashew nuts"],
+  ["🌱", "Sesame seeds"],
+];
+
+const process = [
+  ["01", "Farmer onboarding", "We record each farmer’s details and group farmers by community for better support and training."],
+  ["02", "Farm support", "We provide cash, farm inputs or training based on the farmer’s needs."],
+  ["03", "Field guidance", "We advise farmers on good practices as the crop grows."],
+  ["04", "Harvest collection", "We receive the harvest, check quality and pay the farmer."],
+  ["05", "Supply to buyers", "We deliver crops to processors and buyers. Loans are repaid from sales."],
+];
+
+const sdgs = [
+  ["1", "No Poverty"],
+  ["2", "Zero Hunger"],
+  ["8", "Decent Work and Economic Growth"],
+  ["12", "Responsible Consumption and Production"],
+];
+
+const valueChain = [
+  ["🌱", "Farmers", "Cash, inputs and training, plus a buyer for every harvest."],
+  ["🏦", "Partners and financiers", "A route to fund smallholder farming with clear visibility into how funds are used."],
+  ["🏭", "Processors and buyers", "Dependable supply of palm kernels, soybeans, cashew nuts and cocoa."],
+];
+
+const marketplaceUrl = "https://henry-portfolio-mu.vercel.app";
 
 export default function Home() {
-  return <>
+  return (
     <main>
-      <section className="hero">
-        <div className="hero-copy"><span className="eyebrow light">ENABLING AGRICULTURE, FIRST FOR THE FARMERS</span><h1>Building the supply chain behind Africa’s <em>agro economy.</em></h1><p>Palms African turns smallholder harvests into reliable industrial supply, connecting the farmer who grows the crop to the factory that needs it.</p><div className="actions"><Link className="button button-lime" href="/farmer-support">Grow with us <span>↗</span></Link><Link className="button button-outline" href="/contact">Contact us</Link></div><div className="hero-note"><span>01</span> FARM TO FACTORY · NIGERIA</div></div>
-        <div className="hero-visual"><div className="hero-photo" role="img" aria-label="Palms African community and agriculture in Nigeria"/><div className="photo-caption"><span>Rooted in production</span><span>01 / 05</span></div><div className="hero-stamp">Growing<br/>together<br/><b>✳</b></div></div>
+      <section className="hero" id="home">
+        <div className="hero-copy">
+          <span className="eyebrow">ENABLING AGRICULTURE, FIRST FOR THE FARMERS</span>
+          <h1>Building the supply chain behind Africa’s <em>agro economy</em></h1>
+          <p>
+            Palms African turns smallholder harvests into reliable industrial
+            supply, connecting the farmer who grows the crop to the factory
+            that needs it.
+          </p>
+          <div className="hero-actions">
+            <Link className="button button-primary" href="/what-we-do">
+              Learn more <span aria-hidden="true">↗</span>
+            </Link>
+            <Link className="button button-quiet" href="/contact">
+              Contact us
+            </Link>
+          </div>
+          <div className="hero-caption">
+            <span className="hero-caption-mark" aria-hidden="true">✳</span>
+            <span>From the farmer to the factory.</span>
+          </div>
+        </div>
+        <div className="hero-visual">
+          <div className="hero-photo">
+            <Image
+              src="/assets/palm-plantation.jpeg"
+              alt="Oil palms growing in a Nigerian plantation"
+              fill
+              priority
+              sizes="(max-width: 760px) 100vw, 52vw"
+            />
+          </div>
+          <div className="hero-photo-shade" />
+          <div className="hero-location">
+            <span className="location-dot" />
+            <span>Palms African<br />Nigeria</span>
+          </div>
+          <div className="hero-image-caption">
+            <span>Rooted in production</span>
+            <span>Built to scale</span>
+          </div>
+        </div>
       </section>
-      <section className="impact section-pad"><div className="section-kicker">OUR TRACTION</div><div className="impact-top"><h2>Results on<br/>the ground.</h2><p>Finance, supply and farmer reach delivered so far.</p></div><div className="stats"><div><strong>$30,000+</strong><span>Micro-credit to smallholder farmers (USD)</span></div><div><strong>10,000+</strong><span>Tonnes of raw materials delivered</span></div><div><strong>500+</strong><span>Farmers empowered</span></div></div><div className="sdg"><span>OUR SDG GOALS</span>{[["1","NO POVERTY"],["2","ZERO HUNGER"],["8","DECENT WORK AND ECONOMIC GROWTH"],["12","RESPONSIBLE CONSUMPTION AND PRODUCTION"]].map(([n,t])=><div className={`sdg-item sdg-${n}`} key={n}><b>{n}</b><span>{t}</span></div>)}</div></section>
-      <section className="recognition section-pad soft"><div className="section-kicker">RECOGNITION</div><div className="section-heading"><div><h2>Backed by respected networks.</h2><p>Our founder’s work has been recognised by leading entrepreneurship and business communities.</p></div><Link className="text-link" href="/our-story">Our story <span>↗</span></Link></div><div className="recognition-grid"><article className="recognition-card"><div className="rec-image rec-event"/><div className="rec-body"><span className="eyebrow">ORANGE CORNERS NIGERIA</span><h3>Orange Corners Nigeria, OCIF</h3><p>Palms African was named first runner-up at the Orange Corners Nigeria Innovation Fund Pitch Day in September 2024, winning €20,000.</p><a className="text-link" href="https://www.orangecorners.com/" target="_blank" rel="noreferrer">Read the announcement ↗</a></div></article><article className="recognition-card"><div className="rec-image rec-founder"/><div className="rec-body"><span className="eyebrow">COUNCIL FOR INCLUSIVE CAPITALISM</span><h3>Council for Inclusive Capitalism</h3><p>Our founder, Ezenwa Jeremiah, is a member of the Council for Inclusive Capitalism, a community of business leaders working toward a more inclusive economy.</p><a className="text-link" href="https://www.inclusivecapitalism.com/" target="_blank" rel="noreferrer">View member profile ↗</a></div></article></div></section>
-      <section className="model section-pad"><div className="section-kicker">OUR MODEL</div><div className="model-layout"><div><h2>Three engines,<br/><em>one chain.</em></h2><p>Finance, processing and a digital marketplace work together, from farm to factory. Funded farmers grow more, processing makes output saleable at scale, and the marketplace gives buyers dependable supply.</p><Link className="text-link" href="/what-we-do">Explore what we do ↗</Link></div><div className="engine-list">{[["01","Micro-credit","Cash, farm inputs or training, so every season starts properly resourced."],["02","Processing","We collect and process harvests into consistent agro raw materials."],["03","Digital marketplace","Producers connect directly to industrial buyers, with a shorter, clearer chain."]].map(([i,t,d])=><article className="engine" key={i}><span className="engine-num">{i}</span><div><h3>{t}</h3><p>{d}</p></div><span className="engine-arrow">↗</span></article>)}</div></div><div className="crops"><span>OUR FOCUS CROPS</span><div>{crops.map(c=><b key={c}><i/> {c}</b>)}</div></div></section>
-      <section className="approach section-pad soft"><div className="approach-intro"><div className="section-kicker">WHAT WE DO</div><h2>From the first farmer meeting to the <em>final delivery.</em></h2><p>We support the farm and the harvest together, so farmers earn more and buyers get dependable supply.</p><Link className="button button-dark" href="/our-approach">See our process <span>↗</span></Link></div><div className="steps">{steps.map((s,i)=><Link href="/our-approach" className="step" key={s}><span>0{i+1}</span><div><h3>{s}</h3><p>{["We record each farmer’s details and group farmers by community for better support and training.","We provide cash, farm inputs or training based on the farmer’s needs.","We advise farmers on good practices as the crop grows.","We receive the harvest, check quality and pay the farmer.","We deliver crops to processors and buyers. Loans are repaid from sales."][i]}</p></div><b>↗</b></Link>)}</div></section>
-      <section className="story section-pad"><div className="story-image"><div className="story-image-label">PALMS AFRICAN · LAGOS, NIGERIA</div></div><div className="story-copy"><div className="section-kicker">WHO WE ARE</div><h2>Making African agriculture more productive and more <em>profitable.</em></h2><p>Palms African Processing Ltd is an agritech company in Lagos, Nigeria. We finance smallholder farmers, process their harvests and link them to industrial buyers through a digital marketplace, creating value for farmers, buyers and investors at once.</p><Link className="button button-dark" href="/our-story">Learn more <span>↗</span></Link></div></section>
-      <section className="value-chain section-pad soft"><div className="section-kicker">HOW WE HELP</div><h2>We serve the whole value chain.</h2><p className="section-lede">Farmers, financiers and buyers all gain when the harvest is better.</p><div className="value-grid">{[["01","Farmers","Cash, inputs and training, plus a buyer for every harvest."],["02","Partners and financiers","A route to fund smallholder farming with clear visibility into how funds are used."],["03","Processors and buyers","Dependable supply of palm kernels, soybeans, cashew nuts and cocoa."]].map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div><div className="partners"><span className="section-kicker">OUR PARTNERS</span><h2>Working with organisations that<br/>share our mission.</h2><div className="partner-marks"><b>orange corners</b><b>HFAE<small> Foundation</small></b><b>Inclusive<br/>Capitalism</b><b>Palms African</b></div></div></section>
-      <section className="watch section-pad"><div className="section-kicker">WATCH</div><div className="watch-heading"><div><h2>See Palms African in action.</h2><p>Hear the story and see the work behind the numbers.</p></div><span className="eyebrow">FOUNDER’S STORY · 02:14</span></div><a className="video-poster" href="/our-story" aria-label="Read the story behind Palms African"><div className="play">▶</div><div><span>PALMS AFRICAN PROCESSING</span><h3>Building a more dependable agricultural value chain</h3></div><span className="video-cta">Explore our story ↗</span></a><div className="testimonials"><div><span className="section-kicker">TESTIMONIALS</span><h3>What farmers and buyers say.</h3></div><div className="quote-placeholder"><span>◉</span><b>Farmer testimonial</b><small>Video coming soon</small></div><div className="quote-placeholder"><span>◉</span><b>Buyer testimonial</b><small>Video coming soon</small></div></div></section>
-      <section className="cta"><div><span className="eyebrow light">A BETTER HARVEST STARTS WITH A CONVERSATION</span><h2>Grow with Palms African.</h2><p>Farmers, buyers and partners are all welcome.</p></div><Link href="/contact" className="button button-lime">Let’s talk <span>↗</span></Link></section>
+
+      <section className="proof-section" id="impact" aria-labelledby="impact-title">
+        <div className="section-container">
+          <div className="proof-heading">
+            <div>
+              <span className="eyebrow eyebrow-light">OUR TRACTION</span>
+              <h2 id="impact-title">Results on the ground</h2>
+            </div>
+            <p>Finance, supply and farmer reach delivered so far.</p>
+          </div>
+          <div className="milestone-grid">
+            <div className="milestone">
+              <strong>$30,000+</strong>
+              <span>Micro-credit to smallholder farmers (USD)</span>
+            </div>
+            <div className="milestone">
+              <strong>10,000+</strong>
+              <span>Metric tons of raw materials delivered</span>
+            </div>
+            <div className="milestone">
+              <strong>500+</strong>
+              <span>Farmers empowered</span>
+            </div>
+          </div>
+          <div className="sdg-goals">
+            <span className="eyebrow eyebrow-light">OUR SDG GOALS</span>
+            <div className="sdg-grid">
+              {sdgs.map(([number, label]) => (
+                <div className={`sdg-card sdg-${number}`} key={number}>
+                  <strong>{number}</strong>
+                  <span>{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="recognition-section section-container" id="recognition">
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">RECOGNITION</span>
+            <h2>Backed by respected networks</h2>
+          </div>
+          <p>
+            Our founder’s work has been recognised by leading entrepreneurship
+            and business communities.
+          </p>
+        </div>
+        <div className="recognition-grid">
+          <article className="recognition-card">
+            <div className="recognition-image">
+              <Image
+                src="/assets/landing-orange-corners-winners.jpg"
+                alt="Winners of the Orange Corners Innovation Fund Pitch Day holding their prize boards"
+                fill
+                sizes="(max-width: 760px) 100vw, 40vw"
+              />
+            </div>
+            <div className="recognition-copy">
+              <span className="eyebrow">ORANGE CORNERS NIGERIA</span>
+              <h3>Orange Corners Nigeria, OCIF</h3>
+              <p>
+                Palms African was named first runner-up at the Orange Corners
+                Nigeria Innovation Fund Pitch Day in September 2024, winning
+                €20,000.
+              </p>
+              <a
+                className="text-link"
+                href="https://www.orangecorners.com/meet-the-orange-corners-nigeria-ocif-winners/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Read the announcement <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+          <article className="recognition-card">
+            <div className="recognition-image">
+              <Image
+                src="/assets/landing-founder.jpg"
+                alt="Ezenwa Nwachukwu Jeremiah, founder of Palms African"
+                fill
+                sizes="(max-width: 760px) 100vw, 40vw"
+              />
+            </div>
+            <div className="recognition-copy">
+              <span className="eyebrow">COUNCIL FOR INCLUSIVE CAPITALISM</span>
+              <h3>Council for Inclusive Capitalism</h3>
+              <p>
+                Our founder, Ezenwa Jeremiah, is a member of the Council for
+                Inclusive Capitalism, a community of business leaders working
+                toward a more inclusive economy.
+              </p>
+              <a
+                className="text-link"
+                href="https://www.inclusivecapitalism.com/member/ezenwa-jeremiah/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View member profile <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="model-section section-container" id="work">
+        <span className="eyebrow">OUR MODEL</span>
+        <div className="model-layout">
+          <div className="model-intro">
+            <h2>Three engines,<br /><em>one chain.</em></h2>
+            <p>
+              Finance, processing and a digital marketplace work together,
+              from farm to factory. Funded farmers grow more, processing makes
+              output saleable at scale, and the marketplace gives buyers
+              dependable supply.
+            </p>
+            <Link className="text-link" href="/what-we-do">
+              Explore what we do <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+          <div className="engine-list">
+            <article className="engine-card">
+              <span className="engine-icon" aria-hidden="true">💳</span>
+              <div>
+                <h3>Micro-credit</h3>
+                <p>Cash, farm inputs or training, so every season starts properly resourced.</p>
+              </div>
+              <span className="engine-arrow" aria-hidden="true">↗</span>
+            </article>
+            <article className="engine-card">
+              <span className="engine-icon" aria-hidden="true">🏭</span>
+              <div>
+                <h3>Processing</h3>
+                <p>We collect and process harvests into consistent agro raw materials.</p>
+              </div>
+              <span className="engine-arrow" aria-hidden="true">↗</span>
+            </article>
+            <article className="engine-card">
+              <span className="engine-icon" aria-hidden="true">🛒</span>
+              <div>
+                <h3>Digital marketplace</h3>
+                <p>Producers connect directly to industrial buyers, with a shorter, clearer chain.</p>
+              </div>
+              <a
+                className="engine-arrow"
+                href={marketplaceUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Visit the Palms African marketplace"
+              >
+                ↗
+              </a>
+            </article>
+          </div>
+        </div>
+        <div className="crops-row">
+          <span className="eyebrow">OUR FOCUS CROPS</span>
+          <div className="crop-list">
+            {crops.map(([icon, crop]) => (
+              <span key={crop}><i aria-hidden="true">{icon}</i>{crop}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="process-section">
+        <div className="section-container">
+          <div className="section-heading process-heading">
+            <div>
+              <span className="eyebrow">WHAT WE DO</span>
+              <h2>From the first farmer meeting to the final delivery</h2>
+              <p>
+                We support the farm and the harvest together, so farmers earn
+                more and buyers get dependable supply.
+              </p>
+            </div>
+            <Link className="text-link" href="/our-approach">
+              See our process <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+          <div className="process-grid">
+            {process.map(([number, title, description]) => (
+              <article className="process-card" key={number}>
+                <span>{number}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="intro-section section-container" id="about">
+        <div className="intro-copy">
+          <span className="eyebrow">WHO WE ARE</span>
+          <h2>Making African agriculture more productive and more profitable</h2>
+          <p>
+            Palms African Processing Ltd is an agritech company in Lagos,
+            Nigeria. We finance smallholder farmers, process their harvests and
+            link them to industrial buyers through a digital marketplace,
+            creating value for farmers, buyers and investors at once.
+          </p>
+          <Link className="button button-primary" href="/our-story">
+            Learn more <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+        <div className="intro-card">
+          <div className="intro-card-image">
+            <Image
+              src="/assets/landing-founder.jpg"
+              alt="Ezenwa Nwachukwu Jeremiah, founder and Managing Director of Palms African"
+              fill
+              sizes="(max-width: 760px) 100vw, 42vw"
+            />
+          </div>
+          <div className="intro-card-note">
+            <span>PALMS AFRICAN</span>
+            <p>Rooted in production. Built to scale.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="chain-section">
+        <div className="section-container">
+          <span className="eyebrow">HOW WE HELP</span>
+          <div className="section-heading">
+            <div>
+              <h2>We serve the whole value chain</h2>
+              <p>Farmers, financiers and buyers all gain when the harvest is better.</p>
+            </div>
+          </div>
+          <div className="chain-grid">
+            {valueChain.map(([icon, name, description]) => (
+              <article className="chain-card" key={name}>
+                <span aria-hidden="true">{icon}</span>
+                <h3>{name}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <PartnersCarousel />
+
+      <section className="video-section">
+        <div className="section-container video-layout">
+          <div className="video-copy">
+            <span className="eyebrow">WATCH</span>
+            <h2>See Palms African in action</h2>
+            <p>Hear the story and see the work behind the numbers.</p>
+            <span className="video-duration">FOUNDER’S STORY · 02:14</span>
+          </div>
+          <div className="video-frame">
+            <video controls preload="none" poster="/assets/video-poster.jpg">
+              <source src="/assets/Copy%20of%20LBS%20INTERVIEW%20BRANDED.mp4" type="video/mp4" />
+              Your browser does not support embedded video.
+            </video>
+          </div>
+        </div>
+        <div className="section-container testimonials">
+          <div className="testimonials-heading">
+            <span className="eyebrow">TESTIMONIALS</span>
+            <h3>What farmers and buyers say</h3>
+          </div>
+          <div className="testimonial-card">
+            <span aria-hidden="true">◉</span>
+            <div><b>Farmer testimonial</b><small>Video coming soon</small></div>
+          </div>
+          <div className="testimonial-card">
+            <span aria-hidden="true">◉</span>
+            <div><b>Buyer testimonial</b><small>Video coming soon</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="closing-cta">
+        <div className="section-container closing-cta-inner">
+          <div>
+            <span className="eyebrow eyebrow-light">GROW WITH PALMS AFRICAN</span>
+            <h2>Grow with Palms African.</h2>
+          </div>
+          <div className="closing-actions">
+            <Link className="button button-lime" href="/farmer-support">
+              I’m a farmer <span aria-hidden="true">↗</span>
+            </Link>
+            <a className="button button-outline" href={marketplaceUrl} target="_blank" rel="noreferrer">
+              I’m a buyer <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
-  </>;
+  );
 }
