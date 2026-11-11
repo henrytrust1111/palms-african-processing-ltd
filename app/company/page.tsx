@@ -33,14 +33,14 @@ export default function CompanyOverviewPage() {
             <div className="company-card-copy">
               <span className="section-kicker">PRESENTATION / {section.slide}</span>
               <h2>{section.title}</h2>
-              <span className="company-card-arrow" aria-hidden="true">↗</span>
+              <span className="company-card-arrow" aria-hidden="true">↗︎</span>
             </div>
           </Link>
         ))}
         <Link className="company-mission-link" href={missionLink.href}>
           <span className="section-kicker">ALSO EXPLORE</span>
           <span>{missionLink.title}</span>
-          <span aria-hidden="true">↗</span>
+          <span aria-hidden="true">↗︎</span>
         </Link>
       </nav>
     </main>

@@ -119,7 +119,7 @@ export function Header() {
                       }}
                     >
                       {label}
-                      <span aria-hidden="true">↗</span>
+                      <span aria-hidden="true">↗︎</span>
                     </a>
                   ) : (
                     <Link
@@ -143,7 +143,7 @@ export function Header() {
             target="_blank"
             rel="noreferrer"
           >
-            Marketplace <span aria-hidden="true">↗</span>
+            Marketplace <span aria-hidden="true">↗︎</span>
           </a>
         </nav>
       </div>

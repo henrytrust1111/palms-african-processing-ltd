@@ -350,7 +350,7 @@ async function CorporatePageContent({ params }: CorporatePageProps) {
       <section className="inner-cta">
         <h2>Let’s grow the value chain together.</h2>
         <Link className="button button-lime" href="/contact">
-          Contact our team <span>↗</span>
+          Contact our team <span>↗︎</span>
         </Link>
       </section>
     </main>

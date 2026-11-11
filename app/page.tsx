@@ -86,7 +86,7 @@ export default function Home() {
           </p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/what-we-do">
-              Learn more <span aria-hidden="true">↗</span>
+              Learn more <span aria-hidden="true">↗︎</span>
             </Link>
             <Link className="button button-quiet" href="/contact">
               Contact us
@@ -207,7 +207,7 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Read the announcement <span aria-hidden="true">↗</span>
+                Read the announcement <span aria-hidden="true">↗︎</span>
               </a>
             </div>
           </article>
@@ -235,7 +235,7 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                View member profile <span aria-hidden="true">↗</span>
+                View member profile <span aria-hidden="true">↗︎</span>
               </a>
             </div>
           </article>
@@ -262,7 +262,7 @@ export default function Home() {
               supply.
             </p>
             <Link className="text-link" href="/what-we-do">
-              Explore what we do <span aria-hidden="true">↗</span>
+              Explore what we do <span aria-hidden="true">↗︎</span>
             </Link>
           </div>
           <div className="engine-list">
@@ -278,7 +278,7 @@ export default function Home() {
                 </p>
               </div>
               <span className="engine-arrow" aria-hidden="true">
-                ↗
+                ↗︎
               </span>
             </article>
             <article className="engine-card">
@@ -293,7 +293,7 @@ export default function Home() {
                 </p>
               </div>
               <span className="engine-arrow" aria-hidden="true">
-                ↗
+                ↗︎
               </span>
             </article>
             <article className="engine-card">
@@ -314,7 +314,7 @@ export default function Home() {
                 rel="noreferrer"
                 aria-label="Visit the Palms African marketplace"
               >
-                ↗
+                ↗︎
               </a>
             </article>
           </div>
@@ -344,7 +344,7 @@ export default function Home() {
               </p>
             </div>
             <Link className="text-link" href="/our-approach">
-              See our process <span aria-hidden="true">↗</span>
+              See our process <span aria-hidden="true">↗︎</span>
             </Link>
           </div>
           <div className="process-grid">
@@ -382,7 +382,7 @@ export default function Home() {
             processors.
           </p>
           <Link className="button button-primary" href="/our-story">
-            Learn more <span aria-hidden="true">↗</span>
+            Learn more <span aria-hidden="true">↗︎</span>
           </Link>
         </div>
         <div className="intro-card">
@@ -486,7 +486,7 @@ export default function Home() {
           </div>
           <div className="closing-actions">
             <Link className="button button-lime" href="/farmer-support">
-              I’m a farmer <span aria-hidden="true">↗</span>
+              I’m a farmer <span aria-hidden="true">↗︎</span>
             </Link>
             <a
               className="button button-outline"
@@ -494,7 +494,7 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
             >
-              I’m a buyer <span aria-hidden="true">↗</span>
+              I’m a buyer <span aria-hidden="true">↗︎</span>
             </a>
           </div>
         </div>
