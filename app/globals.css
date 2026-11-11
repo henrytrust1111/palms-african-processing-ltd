@@ -4231,6 +4231,49 @@ main[data-landing-page] .button-lime {
 
   main[data-landing-page] .sdg-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  main[data-landing-page] .sdg-card {
+    min-width: 0;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  main[data-landing-page] .sdg-card strong {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+    border-radius: 12px;
+  }
+
+  main[data-landing-page] .sdg-card span {
+    min-width: 0;
+    flex: 1;
+    overflow-wrap: anywhere;
+    font-size: clamp(8px, 2.3vw, 9px);
+    letter-spacing: .035em;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 360px) {
+    main[data-landing-page] .sdg-card {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 10px;
+      padding: 12px;
+    }
+
+    main[data-landing-page] .sdg-card strong {
+      width: 40px;
+      height: 40px;
+      flex-basis: 40px;
+    }
+
+    main[data-landing-page] .sdg-card span {
+      width: 100%;
+      font-size: 9px;
+    }
   }
 
   main[data-landing-page] .recognition-grid {
