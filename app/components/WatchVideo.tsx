@@ -23,7 +23,7 @@ export default function WatchVideo() {
     <div className="video-frame">
       <video
         ref={videoRef}
-        controls
+        controls={isPlaying}
         preload="none"
         poster="/assets/video-poster.jpg"
         onPlay={() => setIsPlaying(true)}
