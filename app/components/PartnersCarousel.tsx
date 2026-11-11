@@ -8,7 +8,10 @@ const partners = [
   { name: "Canopy Industries", logo: "/assets/partner-canopy-industries.svg" },
   { name: "Ugonma Agro Oil", logo: "/assets/partner-ugonma-agro-oil.svg" },
   { name: "San-Savana Oil Co", logo: "/assets/partner-san-savana-oil-co.svg" },
-  { name: "Aniuzo International", logo: "/assets/partner-aniuzo-international.svg" },
+  {
+    name: "Aniuzo International",
+    logo: "/assets/partner-aniuzo-international.svg",
+  },
 ];
 
 function PartnerGroup({ duplicate = false }: { duplicate?: boolean }) {
@@ -38,11 +41,17 @@ function PartnerGroup({ duplicate = false }: { duplicate?: boolean }) {
 
 export default function PartnersCarousel() {
   return (
-    <section className="partners-section" aria-labelledby="partners-title">
+    <section
+      className="partners-section"
+      aria-labelledby="partners-title"
+      data-reveal
+    >
       <div className="section-container partners-heading">
         <div>
           <span className="eyebrow">OUR PARTNERS</span>
-          <h2 id="partners-title">Working with organisations that share our mission.</h2>
+          <h2 id="partners-title">
+            Working with organisations that share our mission.
+          </h2>
         </div>
         <span className="partners-note">
           Stronger together <span aria-hidden="true">✳</span>

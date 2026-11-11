@@ -14,21 +14,28 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: CompanySectionPageProps) {
   const { section: slug } = await params;
-  const section = companySections.find(({ slug: sectionSlug }) => sectionSlug === slug);
+  const section = companySections.find(
+    ({ slug: sectionSlug }) => sectionSlug === slug,
+  );
   return { title: section?.title ?? "Company overview" };
 }
 
 function SectionFallback() {
   return (
     <main className="company-page company-section-page">
-      <div className="company-section-loading" aria-label="Loading presentation section" />
+      <div
+        className="company-section-loading"
+        aria-label="Loading presentation section"
+      />
     </main>
   );
 }
 
 async function CompanySectionContent({ params }: CompanySectionPageProps) {
   const { section: slug } = await params;
-  const sectionIndex = companySections.findIndex(({ slug: sectionSlug }) => sectionSlug === slug);
+  const sectionIndex = companySections.findIndex(
+    ({ slug: sectionSlug }) => sectionSlug === slug,
+  );
   if (sectionIndex === -1) notFound();
 
   const section = companySections[sectionIndex];
@@ -37,8 +44,13 @@ async function CompanySectionContent({ params }: CompanySectionPageProps) {
 
   return (
     <main className="company-page company-section-page">
-      <nav className="company-chapters" aria-label="Company presentation chapters">
-        <Link className="company-chapters-home" href="/company">All chapters</Link>
+      <nav
+        className="company-chapters"
+        aria-label="Company presentation chapters"
+      >
+        <Link className="company-chapters-home" href="/company">
+          All chapters
+        </Link>
         <div className="company-chapter-links">
           {companySections.map((chapter, index) => (
             <Link
@@ -60,7 +72,9 @@ async function CompanySectionContent({ params }: CompanySectionPageProps) {
             PRESENTATION / {section.slide} <span> / </span> {section.title}
           </p>
           <h1>{section.title}</h1>
-          {section.intro && <p className="company-section-intro">{section.intro}</p>}
+          {section.intro && (
+            <p className="company-section-intro">{section.intro}</p>
+          )}
         </div>
         <div className="company-section-visual">
           <Image
@@ -74,16 +88,25 @@ async function CompanySectionContent({ params }: CompanySectionPageProps) {
       </header>
 
       {section.blocks && (
-        <div className={`company-content-grid${section.blocks.length === 1 ? " is-single" : ""}`}>
+        <div
+          className={`company-content-grid${section.blocks.length === 1 ? " is-single" : ""}`}
+        >
           {section.blocks.map((block, index) => (
-            <section className="company-content-card" key={`${block.title}-${index}`}>
-              <span className="editorial-index">{String(index + 1).padStart(2, "0")}</span>
+            <section
+              className="company-content-card"
+              key={`${block.title}-${index}`}
+            >
+              <span className="editorial-index">
+                {String(index + 1).padStart(2, "0")}
+              </span>
               <div>
                 <h2>{block.title}</h2>
                 {block.body && <p>{block.body}</p>}
                 {block.items && (
                   <ul>
-                    {block.items.map((item) => <li key={item}>{item}</li>)}
+                    {block.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
                   </ul>
                 )}
               </div>
@@ -128,7 +151,9 @@ async function CompanySectionContent({ params }: CompanySectionPageProps) {
             <span>Previous chapter</span>
             <strong>← {previous.title}</strong>
           </Link>
-        ) : <span />}
+        ) : (
+          <span />
+        )}
         {next ? (
           <Link href={`/company/${next.slug}`}>
             <span>Next chapter</span>
@@ -145,7 +170,9 @@ async function CompanySectionContent({ params }: CompanySectionPageProps) {
   );
 }
 
-export default function CompanySectionPage({ params }: CompanySectionPageProps) {
+export default function CompanySectionPage({
+  params,
+}: CompanySectionPageProps) {
   return (
     <Suspense fallback={<SectionFallback />}>
       <CompanySectionContent params={params} />

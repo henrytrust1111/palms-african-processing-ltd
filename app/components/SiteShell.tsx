@@ -40,12 +40,22 @@ const navigation = [
 
 function Brand({ light = false }: { light?: boolean }) {
   return (
-    <Link href="/" className={`brand${light ? " brand-light" : ""}`} aria-label="Palms African home">
-      <Image src="/assets/original-0.png" alt="" width={42} height={42} />
-      <span className="brand-copy">
-        Palms
-        <small>African</small>
-      </span>
+    <Link
+      href="/"
+      className={`brand${light ? " brand-light" : ""}`}
+      aria-label="Palms African home"
+    >
+      <Image
+        src={
+          light
+            ? "/assets/palms-african-logo-footer.png"
+            : "/assets/palms-african-logo-header.png"
+        }
+        alt=""
+        width={1818}
+        height={768}
+        priority={!light}
+      />
     </Link>
   );
 }
@@ -85,9 +95,12 @@ export function Header() {
                 type="button"
                 aria-expanded={activeMenu === group.label}
                 aria-controls={`menu-${group.label.replaceAll(" ", "-").toLowerCase()}`}
-                onClick={() => setActiveMenu(activeMenu === group.label ? null : group.label)}
+                onClick={() =>
+                  setActiveMenu(activeMenu === group.label ? null : group.label)
+                }
               >
-                {group.label}<span className="nav-chevron" aria-hidden="true" />
+                {group.label}
+                <span className="nav-chevron" aria-hidden="true" />
               </button>
               <div
                 className="nav-dropdown-menu"
@@ -105,7 +118,8 @@ export function Header() {
                         setMobileOpen(false);
                       }}
                     >
-                      {label}<span aria-hidden="true">↗</span>
+                      {label}
+                      <span aria-hidden="true">↗</span>
                     </a>
                   ) : (
                     <Link
@@ -123,7 +137,12 @@ export function Header() {
               </div>
             </div>
           ))}
-          <a className="nav-cta" href={marketplaceUrl} target="_blank" rel="noreferrer">
+          <a
+            className="nav-cta"
+            href={marketplaceUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
             Marketplace <span aria-hidden="true">↗</span>
           </a>
         </nav>
@@ -138,7 +157,11 @@ export function Footer() {
       <div className="footer-main">
         <div className="footer-brand">
           <Brand light />
-          <p>Enabling agriculture,<br />first for the farmers.</p>
+          <p>
+            Enabling agriculture,
+            <br />
+            first for the farmers.
+          </p>
         </div>
         <div className="footer-links">
           <div>
@@ -151,16 +174,24 @@ export function Footer() {
           <div>
             <b>Get involved</b>
             <Link href="/farmer-support">For farmers</Link>
-            <a href={marketplaceUrl} target="_blank" rel="noreferrer">For buyers</a>
+            <a href={marketplaceUrl} target="_blank" rel="noreferrer">
+              For buyers
+            </a>
             <Link href="/resources">Resources / FAQ</Link>
             <Link href="/contact">Contact us</Link>
           </div>
           <div>
             <b>Contact</b>
-            <span>Scapular Plaza, Km 16 Lekki-Epe Expressway,<br />Agungi, Lekki, Lagos State</span>
+            <span>
+              Scapular Plaza, Km 16 Lekki-Epe Expressway,
+              <br />
+              Agungi, Lekki, Lagos State
+            </span>
             <a href="tel:+2347034225413">+234 703 422 5413</a>
             <a href="tel:+2348072777803">+234 807 277 7803</a>
-            <a href="mailto:info.palmsafricanltd@gmail.com">info.palmsafricanltd@gmail.com</a>
+            <a href="mailto:info.palmsafricanltd@gmail.com">
+              info.palmsafricanltd@gmail.com
+            </a>
           </div>
         </div>
       </div>

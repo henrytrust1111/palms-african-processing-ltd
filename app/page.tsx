@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import LandingMotion from "./components/LandingMotion";
 import PartnersCarousel from "./components/PartnersCarousel";
+import WatchVideo from "./components/WatchVideo";
 
 const crops = [
   ["🌴", "Oil palm"],
@@ -11,11 +13,31 @@ const crops = [
 ];
 
 const process = [
-  ["01", "Farmer onboarding", "We record each farmer’s details and group farmers by community for better support and training."],
-  ["02", "Farm support", "We provide cash, farm inputs or training based on the farmer’s needs."],
-  ["03", "Field guidance", "We advise farmers on good practices as the crop grows."],
-  ["04", "Harvest collection", "We receive the harvest, check quality and pay the farmer."],
-  ["05", "Supply to buyers", "We deliver crops to processors and buyers. Loans are repaid from sales."],
+  [
+    "01",
+    "Farmer onboarding",
+    "We record each farmer’s details and group farmers by community for better support and training.",
+  ],
+  [
+    "02",
+    "Farm support",
+    "We provide cash, farm inputs or training based on the farmer’s needs.",
+  ],
+  [
+    "03",
+    "Field guidance",
+    "We advise farmers on good practices as the crop grows.",
+  ],
+  [
+    "04",
+    "Harvest collection",
+    "We receive the harvest, check quality and pay the farmer.",
+  ],
+  [
+    "05",
+    "Supply to buyers",
+    "We deliver crops to processors and buyers. Loans are repaid from sales.",
+  ],
 ];
 
 const sdgs = [
@@ -26,24 +48,41 @@ const sdgs = [
 ];
 
 const valueChain = [
-  ["🌱", "Farmers", "Cash, inputs and training, plus a buyer for every harvest."],
-  ["🏦", "Partners and financiers", "A route to fund smallholder farming with clear visibility into how funds are used."],
-  ["🏭", "Processors and buyers", "Dependable supply of palm kernels, soybeans, cashew nuts and cocoa."],
+  [
+    "🌱",
+    "Farmers",
+    "Cash, inputs and training, plus a buyer for every harvest.",
+  ],
+  [
+    "🏦",
+    "Partners and financiers",
+    "A route to fund smallholder farming with clear visibility into how funds are used.",
+  ],
+  [
+    "🏭",
+    "Processors and buyers",
+    "Dependable supply of palm kernels, soybeans, cashew nuts and cocoa.",
+  ],
 ];
 
 const marketplaceUrl = "https://henry-portfolio-mu.vercel.app";
 
 export default function Home() {
   return (
-    <main>
+    <main data-landing-page>
+      <LandingMotion />
       <section className="hero" id="home">
         <div className="hero-copy">
-          <span className="eyebrow">ENABLING AGRICULTURE, FIRST FOR THE FARMERS</span>
-          <h1>Building the supply chain behind Africa’s <em>agro economy</em></h1>
+          <span className="eyebrow">
+            ENABLING AGRICULTURE, FIRST FOR THE FARMERS
+          </span>
+          <h1>
+            Building the supply chain behind Africa’s <em>agro economy</em>
+          </h1>
           <p>
             Palms African turns smallholder harvests into reliable industrial
-            supply, connecting the farmer who grows the crop to the factory
-            that needs it.
+            supply, connecting the farmer who grows the crop to the factory that
+            needs it.
           </p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/what-we-do">
@@ -54,7 +93,9 @@ export default function Home() {
             </Link>
           </div>
           <div className="hero-caption">
-            <span className="hero-caption-mark" aria-hidden="true">✳</span>
+            <span className="hero-caption-mark" aria-hidden="true">
+              ✳
+            </span>
             <span>From the farmer to the factory.</span>
           </div>
         </div>
@@ -65,13 +106,18 @@ export default function Home() {
               alt="Oil palms growing in a Nigerian plantation"
               fill
               priority
+              quality={85}
               sizes="(max-width: 760px) 100vw, 52vw"
             />
           </div>
           <div className="hero-photo-shade" />
           <div className="hero-location">
             <span className="location-dot" />
-            <span>Palms African<br />Nigeria</span>
+            <span>
+              Palms African
+              <br />
+              Nigeria
+            </span>
           </div>
           <div className="hero-image-caption">
             <span>Rooted in production</span>
@@ -80,16 +126,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="proof-section" id="impact" aria-labelledby="impact-title">
+      <section
+        className="proof-section"
+        id="impact"
+        aria-labelledby="impact-title"
+      >
         <div className="section-container">
-          <div className="proof-heading">
+          <div className="proof-heading" data-reveal>
             <div>
               <span className="eyebrow eyebrow-light">OUR TRACTION</span>
               <h2 id="impact-title">Results on the ground</h2>
             </div>
             <p>Finance, supply and farmer reach delivered so far.</p>
           </div>
-          <div className="milestone-grid">
+          <div className="milestone-grid" data-reveal>
             <div className="milestone">
               <strong>$30,000+</strong>
               <span>Micro-credit to smallholder farmers (USD)</span>
@@ -103,7 +153,7 @@ export default function Home() {
               <span>Farmers empowered</span>
             </div>
           </div>
-          <div className="sdg-goals">
+          <div className="sdg-goals" data-reveal>
             <span className="eyebrow eyebrow-light">OUR SDG GOALS</span>
             <div className="sdg-grid">
               {sdgs.map(([number, label]) => (
@@ -117,7 +167,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="recognition-section section-container" id="recognition">
+      <section
+        className="recognition-section section-container"
+        id="recognition"
+        data-reveal
+      >
         <div className="section-heading">
           <div>
             <span className="eyebrow">RECOGNITION</span>
@@ -135,6 +189,7 @@ export default function Home() {
                 src="/assets/landing-orange-corners-winners.jpg"
                 alt="Winners of the Orange Corners Innovation Fund Pitch Day holding their prize boards"
                 fill
+                quality={85}
                 sizes="(max-width: 760px) 100vw, 40vw"
               />
             </div>
@@ -162,6 +217,7 @@ export default function Home() {
                 src="/assets/landing-founder.jpg"
                 alt="Ezenwa Nwachukwu Jeremiah, founder of Palms African"
                 fill
+                quality={85}
                 sizes="(max-width: 760px) 100vw, 40vw"
               />
             </div>
@@ -186,16 +242,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="model-section section-container" id="work">
+      <section
+        className="model-section section-container"
+        id="work"
+        data-reveal
+      >
         <span className="eyebrow">OUR MODEL</span>
         <div className="model-layout">
           <div className="model-intro">
-            <h2>Three engines,<br /><em>one chain.</em></h2>
+            <h2>
+              Three engines,
+              <br />
+              <em>one chain.</em>
+            </h2>
             <p>
-              Finance, processing and a digital marketplace work together,
-              from farm to factory. Funded farmers grow more, processing makes
-              output saleable at scale, and the marketplace gives buyers
-              dependable supply.
+              Finance, processing and a digital marketplace work together, from
+              farm to factory. Funded farmers grow more, processing makes output
+              saleable at scale, and the marketplace gives buyers dependable
+              supply.
             </p>
             <Link className="text-link" href="/what-we-do">
               Explore what we do <span aria-hidden="true">↗</span>
@@ -203,26 +267,45 @@ export default function Home() {
           </div>
           <div className="engine-list">
             <article className="engine-card">
-              <span className="engine-icon" aria-hidden="true">💳</span>
+              <span className="engine-icon" aria-hidden="true">
+                💳
+              </span>
               <div>
                 <h3>Micro-credit</h3>
-                <p>Cash, farm inputs or training, so every season starts properly resourced.</p>
+                <p>
+                  Cash, farm inputs or training, so every season starts properly
+                  resourced.
+                </p>
               </div>
-              <span className="engine-arrow" aria-hidden="true">↗</span>
+              <span className="engine-arrow" aria-hidden="true">
+                ↗
+              </span>
             </article>
             <article className="engine-card">
-              <span className="engine-icon" aria-hidden="true">🏭</span>
+              <span className="engine-icon" aria-hidden="true">
+                🏭
+              </span>
               <div>
                 <h3>Processing</h3>
-                <p>We collect and process harvests into consistent agro raw materials.</p>
+                <p>
+                  We collect and process harvests into consistent agro raw
+                  materials.
+                </p>
               </div>
-              <span className="engine-arrow" aria-hidden="true">↗</span>
+              <span className="engine-arrow" aria-hidden="true">
+                ↗
+              </span>
             </article>
             <article className="engine-card">
-              <span className="engine-icon" aria-hidden="true">🛒</span>
+              <span className="engine-icon" aria-hidden="true">
+                🛒
+              </span>
               <div>
                 <h3>Digital marketplace</h3>
-                <p>Producers connect directly to industrial buyers, with a shorter, clearer chain.</p>
+                <p>
+                  Producers connect directly to industrial buyers, with a
+                  shorter, clearer chain.
+                </p>
               </div>
               <a
                 className="engine-arrow"
@@ -240,13 +323,16 @@ export default function Home() {
           <span className="eyebrow">OUR FOCUS CROPS</span>
           <div className="crop-list">
             {crops.map(([icon, crop]) => (
-              <span key={crop}><i aria-hidden="true">{icon}</i>{crop}</span>
+              <span key={crop}>
+                <i aria-hidden="true">{icon}</i>
+                {crop}
+              </span>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="process-section">
+      <section className="process-section" data-reveal>
         <div className="section-container">
           <div className="section-heading process-heading">
             <div>
@@ -273,15 +359,27 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="intro-section section-container" id="about">
+      <section
+        className="intro-section section-container"
+        id="about"
+        data-reveal
+      >
         <div className="intro-copy">
           <span className="eyebrow">WHO WE ARE</span>
-          <h2>Making African agriculture more productive and more profitable</h2>
+          <h2>
+            Making African agriculture more productive and more profitable
+          </h2>
           <p>
             Palms African Processing Ltd is an agritech company in Lagos,
             Nigeria. We finance smallholder farmers, process their harvests and
             link them to industrial buyers through a digital marketplace,
             creating value for farmers, buyers and investors at once.
+          </p>
+          <p>
+            Our mission is to de-risk the African smallholder value chain,
+            converting fragmented, vulnerable rural yields into verified,
+            institutional-grade raw supply for global food and oleochemical
+            processors.
           </p>
           <Link className="button button-primary" href="/our-story">
             Learn more <span aria-hidden="true">↗</span>
@@ -297,19 +395,26 @@ export default function Home() {
             />
           </div>
           <div className="intro-card-note">
-            <span>PALMS AFRICAN</span>
-            <p>Rooted in production. Built to scale.</p>
+            <span className="intro-card-brand">PALMS AFRICAN</span>
+            <p className="intro-card-tagline">Rooted in production.</p>
+            <strong className="intro-card-founder">
+              Ezenwa Jeremiah, Founder
+            </strong>
+            <span className="intro-card-scale">Built to scale.</span>
           </div>
         </div>
       </section>
 
-      <section className="chain-section">
+      <section className="chain-section" data-reveal>
         <div className="section-container">
           <span className="eyebrow">HOW WE HELP</span>
           <div className="section-heading">
             <div>
               <h2>We serve the whole value chain</h2>
-              <p>Farmers, financiers and buyers all gain when the harvest is better.</p>
+              <p>
+                Farmers, financiers and buyers all gain when the harvest is
+                better.
+              </p>
             </div>
           </div>
           <div className="chain-grid">
@@ -326,20 +431,28 @@ export default function Home() {
 
       <PartnersCarousel />
 
-      <section className="video-section">
+      <section className="video-section" data-reveal>
         <div className="section-container video-layout">
           <div className="video-copy">
             <span className="eyebrow">WATCH</span>
             <h2>See Palms African in action</h2>
-            <p>Hear the story and see the work behind the numbers.</p>
-            <span className="video-duration">FOUNDER’S STORY · 02:14</span>
+            <p>
+              Hear the story and see the work behind the numbers. Discover how
+              our decentralized collection hubs streamline African agriculture.
+            </p>
+            <span className="video-duration">
+              <svg
+                className="video-duration-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="8.5" />
+                <path d="M12 7v5l3 2" />
+              </svg>
+              FOUNDER’S STORY · 05:01
+            </span>
           </div>
-          <div className="video-frame">
-            <video controls preload="none" poster="/assets/video-poster.jpg">
-              <source src="/assets/Copy%20of%20LBS%20INTERVIEW%20BRANDED.mp4" type="video/mp4" />
-              Your browser does not support embedded video.
-            </video>
-          </div>
+          <WatchVideo />
         </div>
         <div className="section-container testimonials">
           <div className="testimonials-heading">
@@ -348,26 +461,39 @@ export default function Home() {
           </div>
           <div className="testimonial-card">
             <span aria-hidden="true">◉</span>
-            <div><b>Farmer testimonial</b><small>Video coming soon</small></div>
+            <div>
+              <b>Farmer testimonial</b>
+              <small>Video coming soon</small>
+            </div>
           </div>
           <div className="testimonial-card">
             <span aria-hidden="true">◉</span>
-            <div><b>Buyer testimonial</b><small>Video coming soon</small></div>
+            <div>
+              <b>Buyer testimonial</b>
+              <small>Video coming soon</small>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="closing-cta">
+      <section className="closing-cta" data-reveal>
         <div className="section-container closing-cta-inner">
           <div>
-            <span className="eyebrow eyebrow-light">GROW WITH PALMS AFRICAN</span>
+            <span className="eyebrow eyebrow-light">
+              GROW WITH PALMS AFRICAN
+            </span>
             <h2>Grow with Palms African.</h2>
           </div>
           <div className="closing-actions">
             <Link className="button button-lime" href="/farmer-support">
               I’m a farmer <span aria-hidden="true">↗</span>
             </Link>
-            <a className="button button-outline" href={marketplaceUrl} target="_blank" rel="noreferrer">
+            <a
+              className="button button-outline"
+              href={marketplaceUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
               I’m a buyer <span aria-hidden="true">↗</span>
             </a>
           </div>
