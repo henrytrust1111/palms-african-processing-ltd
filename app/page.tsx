@@ -65,7 +65,7 @@ const valueChain = [
   ],
 ];
 
-const marketplaceUrl = "africanagrohub.com";
+const marketplaceUrl = "https://africanagrohub.com/";
 
 export default function Home() {
   return (

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const marketplaceUrl = "africanagrohub.com";
+const marketplaceUrl = "https://africanagrohub.com/";
 
 const navigation = [
   {
