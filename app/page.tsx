@@ -65,7 +65,7 @@ const valueChain = [
   ],
 ];
 
-const marketplaceUrl = "https://henry-portfolio-mu.vercel.app";
+const marketplaceUrl = "africanagrohub.com";
 
 export default function Home() {
   return (
