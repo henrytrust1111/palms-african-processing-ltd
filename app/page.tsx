@@ -40,6 +40,48 @@ const process = [
   ],
 ];
 
+function SdgIcon({ number }: { number: string }) {
+  if (number === "1") {
+    return (
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="13" r="5" fill="currentColor" />
+        <circle cx="15" cy="20" r="4" fill="currentColor" />
+        <circle cx="49" cy="20" r="4" fill="currentColor" />
+        <path d="M24 26c1-5 15-5 16 0l3 19h-7l-1-10-2 10h-2l-2-10-1 10h-7l3-19ZM8 31l3-6 4 6v20H9V40H6v11H2V38l6-7Zm48 0-3-6-4 6v20h6V40h3v11h4V38l-6-7Z" fill="currentColor" />
+        <path d="M20 47h24v4H20z" fill="currentColor" />
+      </svg>
+    );
+  }
+
+  if (number === "2") {
+    return (
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M18 27h28l-2 7c-2 8-7 12-12 12s-10-4-12-12l-2-7Z" fill="none" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
+        <path d="M14 46h36M24 51h16" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+        <path d="M25 22c-5-5 5-7 0-12M34 22c-5-5 5-7 0-12M43 22c-5-5 5-7 0-12" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  if (number === "8") {
+    return (
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M10 52V26h44v26H10Zm4-30v-6h36v6" fill="none" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
+        <path d="M24 21v-5h16v5M24 34h16v10H24z" fill="none" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
+        <circle cx="32" cy="39" r="3" fill="currentColor" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M32 51V30M32 35c-10 0-16-6-17-16 10-1 17 5 17 16Zm0 7c10 0 16-6 17-16-10-1-17 5-17 16Z" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M20 51h24M25 56h14" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+      <path d="M9 34h46" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity=".75" />
+    </svg>
+  );
+}
+
 const sdgs = [
   ["1", "No Poverty"],
   ["2", "Zero Hunger"],
@@ -158,87 +200,17 @@ export default function Home() {
             <div className="sdg-grid">
               {sdgs.map(([number, label]) => (
                 <div className={`sdg-card sdg-${number}`} key={number}>
-                  <strong>{number}</strong>
+                  <div className="sdg-card-heading">
+                    <strong>{number}</strong>
+                    <span className="sdg-icon">
+                      <SdgIcon number={number} />
+                    </span>
+                  </div>
                   <span>{label}</span>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      <section
-        className="recognition-section section-container"
-        id="recognition"
-        data-reveal
-      >
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow">RECOGNITION</span>
-            <h2>Backed by respected networks</h2>
-          </div>
-          <p>
-            Our founder’s work has been recognised by leading entrepreneurship
-            and business communities.
-          </p>
-        </div>
-        <div className="recognition-grid">
-          <article className="recognition-card">
-            <div className="recognition-image">
-              <Image
-                src="/assets/landing-orange-corners-winners.jpg"
-                alt="Winners of the Orange Corners Innovation Fund Pitch Day holding their prize boards"
-                fill
-                quality={85}
-                sizes="(max-width: 760px) 100vw, 40vw"
-              />
-            </div>
-            <div className="recognition-copy">
-              <span className="eyebrow">ORANGE CORNERS NIGERIA</span>
-              <h3>Orange Corners Nigeria, OCIF</h3>
-              <p>
-                Palms African was named first runner-up at the Orange Corners
-                Nigeria Innovation Fund Pitch Day in September 2024, winning
-                €20,000.
-              </p>
-              <a
-                className="text-link"
-                href="https://www.orangecorners.com/meet-the-orange-corners-nigeria-ocif-winners/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Read the announcement <span aria-hidden="true">↗︎</span>
-              </a>
-            </div>
-          </article>
-          <article className="recognition-card">
-            <div className="recognition-image">
-              <Image
-                src="/assets/landing-founder.jpg"
-                alt="Ezenwa Nwachukwu Jeremiah, founder of Palms African"
-                fill
-                quality={85}
-                sizes="(max-width: 760px) 100vw, 40vw"
-              />
-            </div>
-            <div className="recognition-copy">
-              <span className="eyebrow">COUNCIL FOR INCLUSIVE CAPITALISM</span>
-              <h3>Council for Inclusive Capitalism</h3>
-              <p>
-                Our founder, Ezenwa Jeremiah, is a member of the Council for
-                Inclusive Capitalism, a community of business leaders working
-                toward a more inclusive economy.
-              </p>
-              <a
-                className="text-link"
-                href="https://www.inclusivecapitalism.com/member/ezenwa-jeremiah/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                View member profile <span aria-hidden="true">↗︎</span>
-              </a>
-            </div>
-          </article>
         </div>
       </section>
 
@@ -497,6 +469,81 @@ export default function Home() {
               I’m a buyer <span aria-hidden="true">↗︎</span>
             </a>
           </div>
+        </div>
+      </section>
+
+      <section
+        className="recognition-section section-container"
+        id="recognition"
+        data-reveal
+      >
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">RECOGNITION</span>
+            <h2>Backed by respected networks</h2>
+          </div>
+          <p>
+            Our founder’s work has been recognised by leading entrepreneurship
+            and business communities.
+          </p>
+        </div>
+        <div className="recognition-grid">
+          <article className="recognition-card">
+            <div className="recognition-image">
+              <Image
+                src="/assets/landing-orange-corners-winners.jpg"
+                alt="Winners of the Orange Corners Innovation Fund Pitch Day holding their prize boards"
+                fill
+                quality={85}
+                sizes="(max-width: 760px) 100vw, 40vw"
+              />
+            </div>
+            <div className="recognition-copy">
+              <span className="eyebrow">ORANGE CORNERS NIGERIA</span>
+              <h3>Orange Corners Nigeria, OCIF</h3>
+              <p>
+                Palms African was named first runner-up at the Orange Corners
+                Nigeria Innovation Fund Pitch Day in September 2024, winning
+                €20,000.
+              </p>
+              <a
+                className="text-link"
+                href="https://www.orangecorners.com/meet-the-orange-corners-nigeria-ocif-winners/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Read the announcement <span aria-hidden="true">↗︎</span>
+              </a>
+            </div>
+          </article>
+          <article className="recognition-card">
+            <div className="recognition-image">
+              <Image
+                src="/assets/landing-founder.jpg"
+                alt="Ezenwa Nwachukwu Jeremiah, founder of Palms African"
+                fill
+                quality={85}
+                sizes="(max-width: 760px) 100vw, 40vw"
+              />
+            </div>
+            <div className="recognition-copy">
+              <span className="eyebrow">COUNCIL FOR INCLUSIVE CAPITALISM</span>
+              <h3>Council for Inclusive Capitalism</h3>
+              <p>
+                Our founder, Ezenwa Jeremiah, is a member of the Council for
+                Inclusive Capitalism, a community of business leaders working
+                toward a more inclusive economy.
+              </p>
+              <a
+                className="text-link"
+                href="https://www.inclusivecapitalism.com/member/ezenwa-jeremiah/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View member profile <span aria-hidden="true">↗︎</span>
+              </a>
+            </div>
+          </article>
         </div>
       </section>
     </main>

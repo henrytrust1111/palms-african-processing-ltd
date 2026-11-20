@@ -3498,10 +3498,10 @@ main[data-landing-page] .sdg-goals {
 
 main[data-landing-page] .sdg-card {
   min-height: 104px;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 18px;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 10px;
   padding: 18px 20px;
   border: 1px solid rgb(255 255 255 / 12%);
   border-radius: 17px;
@@ -3528,7 +3528,28 @@ main[data-landing-page] .sdg-card strong {
   font-size: 20px;
 }
 
-main[data-landing-page] .sdg-card span {
+main[data-landing-page] .sdg-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+main[data-landing-page] .sdg-icon {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  place-items: center;
+  color: var(--white);
+}
+
+main[data-landing-page] .sdg-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+main[data-landing-page] .sdg-card > span {
   color: var(--white);
   font-size: 10px;
   font-weight: 700;
@@ -4247,7 +4268,13 @@ main[data-landing-page] .button-lime {
     border-radius: 12px;
   }
 
-  main[data-landing-page] .sdg-card span {
+  main[data-landing-page] .sdg-icon,
+  main[data-landing-page] .sdg-icon svg {
+    width: 44px;
+    height: 44px;
+  }
+
+  main[data-landing-page] .sdg-card > span {
     min-width: 0;
     flex: 1;
     overflow-wrap: anywhere;
@@ -4270,7 +4297,13 @@ main[data-landing-page] .button-lime {
       flex-basis: 40px;
     }
 
-    main[data-landing-page] .sdg-card span {
+    main[data-landing-page] .sdg-icon,
+    main[data-landing-page] .sdg-icon svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    main[data-landing-page] .sdg-card > span {
       width: 100%;
       font-size: 9px;
     }
