@@ -1,8 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import LandingMotion from "./components/LandingMotion";
+import LandingBanner from "./components/LandingBanner";
+import ModelSection from "./components/ModelSection";
+import ValueChainSection from "./components/ValueChainSection";
+import ProcessSection from "./components/ProcessSection";
+import CountUpNumber from "./components/CountUpNumber";
 import PartnersCarousel from "./components/PartnersCarousel";
 import RecognitionSection from "./components/RecognitionSection";
+import TractionInfographic from "./components/TractionInfographic";
 import WatchVideo from "./components/WatchVideo";
 
 const crops = [
@@ -11,34 +17,6 @@ const crops = [
   ["🍫", "Cocoa"],
   ["🥜", "Cashew nuts"],
   ["🌱", "Sesame seeds"],
-];
-
-const process = [
-  [
-    "01",
-    "Farmer onboarding",
-    "We record each farmer’s details and group farmers by community for better support and training.",
-  ],
-  [
-    "02",
-    "Farm support",
-    "We provide cash, farm inputs or training based on the farmer’s needs.",
-  ],
-  [
-    "03",
-    "Field guidance",
-    "We advise farmers on good practices as the crop grows.",
-  ],
-  [
-    "04",
-    "Harvest collection",
-    "We receive the harvest, check quality and pay the farmer.",
-  ],
-  [
-    "05",
-    "Supply to buyers",
-    "We deliver crops to processors and buyers. Loans are repaid from sales.",
-  ],
 ];
 
 function SdgIcon({ number }: { number: string }) {
@@ -83,29 +61,53 @@ function SdgIcon({ number }: { number: string }) {
   );
 }
 
+function TractionIcon({
+  kind,
+}: {
+  kind: "credit" | "delivery" | "farmers" | "jobs";
+}) {
+  if (kind === "credit") {
+    return (
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="5" y="13" width="38" height="22" rx="3" />
+        <circle cx="24" cy="24" r="5.5" />
+        <path d="M11 19v.01M37 29v.01" />
+      </svg>
+    );
+  }
+
+  if (kind === "delivery") {
+    return (
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M4 13h24v21H4zM28 20h8l7 7v7H28z" />
+        <circle cx="13" cy="36" r="3.5" />
+        <circle cx="35" cy="36" r="3.5" />
+      </svg>
+    );
+  }
+
+  if (kind === "jobs") {
+    return (
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="4" y="13" width="40" height="29" rx="3" />
+        <path d="M17 13V6h14v7M4 24h40M20 24v5h8v-5" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 48 48" aria-hidden="true">
+      <circle cx="24" cy="15" r="6" />
+      <path d="M14 11h20M10 43V33a14 14 0 0 1 28 0v10zM24 29v14" />
+    </svg>
+  );
+}
+
 const sdgs = [
   ["1", "No Poverty"],
   ["2", "Zero Hunger"],
   ["8", "Decent Work and Economic Growth"],
   ["12", "Responsible Consumption and Production"],
-];
-
-const valueChain = [
-  [
-    "🌱",
-    "Farmers",
-    "Cash, inputs and training, plus a buyer for every harvest.",
-  ],
-  [
-    "🏦",
-    "Partners and financiers",
-    "A route to fund smallholder farming with clear visibility into how funds are used.",
-  ],
-  [
-    "🏭",
-    "Processors and buyers",
-    "Dependable supply of palm kernels, soybeans, cashew nuts and cocoa.",
-  ],
 ];
 
 const marketplaceUrl = "https://africanagrohub.com/";
@@ -175,162 +177,84 @@ export default function Home() {
         aria-labelledby="impact-title"
       >
         <div className="section-container">
-          <div className="proof-heading" data-reveal>
-            <div>
-              <span className="eyebrow eyebrow-light">OUR TRACTION</span>
-              <h2 id="impact-title">Results on the ground</h2>
-            </div>
-            <p>Finance, supply and farmer reach delivered so far.</p>
-          </div>
-          <div className="milestone-grid" data-reveal>
-            <div className="milestone">
-              <strong>$30,000+</strong>
-              <span>Micro-credit to smallholder farmers (USD)</span>
-            </div>
-            <div className="milestone">
-              <strong>10,000+</strong>
-              <span>Metric tons of raw materials delivered</span>
-            </div>
-            <div className="milestone">
-              <strong>500+</strong>
-              <span>Farmers empowered</span>
-            </div>
-          </div>
-          <div className="sdg-goals" data-reveal>
-            <span className="eyebrow eyebrow-light">OUR SDG GOALS</span>
-            <div className="sdg-grid">
-              {sdgs.map(([number, label]) => (
-                <div className={`sdg-card sdg-${number}`} key={number}>
-                  <div className="sdg-card-heading">
-                    <strong>{number}</strong>
-                    <span className="sdg-icon">
-                      <SdgIcon number={number} />
-                    </span>
-                  </div>
-                  <span>{label}</span>
+          <div className="proof-layout">
+            <div className="proof-copy">
+              <div className="proof-heading" data-reveal>
+                <div>
+                  <span className="eyebrow eyebrow-light">OUR TRACTION</span>
+                  <h2 id="impact-title">Results on the ground</h2>
                 </div>
-              ))}
+                <p>Finance, supply and farmer reach delivered so far.</p>
+              </div>
+              <div className="milestone-grid" data-reveal>
+                <div className="milestone">
+                  <TractionIcon kind="credit" />
+                  <div><CountUpNumber value={30000} prefix="$" suffix="+" label="$30,000+" /><span>Micro-credit to smallholder farmers (USD)</span></div>
+                </div>
+                <div className="milestone">
+                  <TractionIcon kind="delivery" />
+                  <div><CountUpNumber value={10000} suffix="+" label="10,000+" /><span>Metric tons of raw materials delivered</span></div>
+                </div>
+                <div className="milestone">
+                  <TractionIcon kind="farmers" />
+                  <div><CountUpNumber value={500} suffix="+" label="500+" /><span>Farmers empowered</span></div>
+                </div>
+                <div className="milestone">
+                  <TractionIcon kind="jobs" />
+                  <div><CountUpNumber value={200} suffix="+" label="200+" /><span>Jobs created</span></div>
+                </div>
+              </div>
+              <div className="sdg-goals" data-reveal>
+                <span className="eyebrow eyebrow-light">OUR SDG GOALS</span>
+                <div className="sdg-grid">
+                  {sdgs.map(([number, label]) => (
+                    <div className={`sdg-card sdg-${number}`} key={number} role="img" aria-label={`SDG ${number}: ${label}`} title={`SDG ${number}: ${label}`}>
+                      <div className="sdg-card-heading">
+                        <strong>{number}</strong>
+                        <span>{label}</span>
+                      </div>
+                      <span className="sdg-icon"><SdgIcon number={number} /></span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
+            <TractionInfographic />
           </div>
         </div>
       </section>
 
-      <section
-        className="model-section section-container"
-        id="work"
-        data-reveal
-      >
-        <span className="eyebrow">OUR MODEL</span>
-        <div className="model-layout">
-          <div className="model-intro">
-            <h2>
-              Three engines,
-              <br />
-              <em>one chain.</em>
-            </h2>
-            <p>
-              Finance, processing and a digital marketplace work together, from
-              farm to factory. Funded farmers grow more, processing makes output
-              saleable at scale, and the marketplace gives buyers dependable
-              supply.
-            </p>
-            <Link className="text-link" href="/what-we-do">
-              Explore what we do <span aria-hidden="true">↗︎</span>
-            </Link>
-          </div>
-          <div className="engine-list">
-            <article className="engine-card">
-              <span className="engine-icon" aria-hidden="true">
-                💳
-              </span>
-              <div>
-                <h3>Micro-credit</h3>
-                <p>
-                  Cash, farm inputs or training, so every season starts properly
-                  resourced.
-                </p>
-              </div>
-              <span className="engine-arrow" aria-hidden="true">
-                ↗︎
-              </span>
-            </article>
-            <article className="engine-card">
-              <span className="engine-icon" aria-hidden="true">
-                🏭
-              </span>
-              <div>
-                <h3>Processing</h3>
-                <p>
-                  We collect and process harvests into consistent agro raw
-                  materials.
-                </p>
-              </div>
-              <span className="engine-arrow" aria-hidden="true">
-                ↗︎
-              </span>
-            </article>
-            <article className="engine-card">
-              <span className="engine-icon" aria-hidden="true">
-                🛒
-              </span>
-              <div>
-                <h3>Digital marketplace</h3>
-                <p>
-                  Producers connect directly to industrial buyers, with a
-                  shorter, clearer chain.
-                </p>
-              </div>
-              <a
-                className="engine-arrow"
-                href={marketplaceUrl}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Visit the Palms African marketplace"
-              >
-                ↗︎
-              </a>
-            </article>
-          </div>
-        </div>
-        <div className="crops-row">
-          <span className="eyebrow">OUR FOCUS CROPS</span>
-          <div className="crop-list">
-            {crops.map(([icon, crop]) => (
-              <span key={crop}>
-                <i aria-hidden="true">{icon}</i>
-                {crop}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ModelSection />
 
-      <section className="process-section" data-reveal>
+      <section className="focus-crops-section" aria-labelledby="focus-crops-title">
         <div className="section-container">
-          <div className="section-heading process-heading">
-            <div>
-              <span className="eyebrow">WHAT WE DO</span>
-              <h2>From the first farmer meeting to the final delivery</h2>
-              <p>
-                We support the farm and the harvest together, so farmers earn
-                more and buyers get dependable supply.
-              </p>
+          <div className="crops-feature">
+            <div className="crops-copy">
+              <span className="eyebrow" id="focus-crops-title">OUR FOCUS CROPS</span>
+              <div className="crop-list">
+                {crops.map(([icon, crop]) => (
+                  <span key={crop}>
+                    <i aria-hidden="true">{icon}</i>
+                    {crop}
+                  </span>
+                ))}
+              </div>
             </div>
-            <Link className="text-link" href="/our-approach">
-              See our process <span aria-hidden="true">↗︎</span>
-            </Link>
-          </div>
-          <div className="process-grid">
-            {process.map(([number, title, description]) => (
-              <article className="process-card" key={number}>
-                <span>{number}</span>
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </article>
-            ))}
+            <picture className="crops-visual">
+              <source media="(prefers-reduced-motion: reduce)" srcSet="/assets/focus-crops-flow.jpg" />
+              <Image
+                src="/assets/focus-crops-flow.gif"
+                alt="Oil palm, soybeans, cocoa, cashew nuts, sesame seeds, ginger and hibiscus moving from farmers to processing, marketplace and buyers."
+                width={640}
+                height={520}
+                unoptimized
+              />
+            </picture>
           </div>
         </div>
       </section>
+
+      <ProcessSection />
 
       <section
         className="intro-section section-container"
@@ -378,29 +302,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="chain-section" data-reveal>
-        <div className="section-container">
-          <span className="eyebrow">HOW WE HELP</span>
-          <div className="section-heading">
-            <div>
-              <h2>We serve the whole value chain</h2>
-              <p>
-                Farmers, financiers and buyers all gain when the harvest is
-                better.
-              </p>
-            </div>
-          </div>
-          <div className="chain-grid">
-            {valueChain.map(([icon, name, description]) => (
-              <article className="chain-card" key={name}>
-                <span aria-hidden="true">{icon}</span>
-                <h3>{name}</h3>
-                <p>{description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ValueChainSection />
 
       <PartnersCarousel />
 
@@ -429,29 +331,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="closing-cta" data-reveal>
-        <div className="section-container closing-cta-inner">
-          <div>
-            <span className="eyebrow eyebrow-light">
-              GROW WITH PALMS AFRICAN
-            </span>
-            <h2>Grow with Palms African.</h2>
-          </div>
-          <div className="closing-actions">
-            <Link className="button button-lime" href="/farmer-support">
-              I’m a farmer <span aria-hidden="true">↗︎</span>
-            </Link>
-            <a
-              className="button button-outline"
-              href={marketplaceUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              I’m a buyer <span aria-hidden="true">↗︎</span>
-            </a>
-          </div>
-        </div>
-      </section>
+      <LandingBanner />
 
       <RecognitionSection />
     </main>
