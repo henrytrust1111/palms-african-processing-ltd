@@ -1554,59 +1554,6 @@ video:focus-visible {
   letter-spacing: .12em;
 }
 
-.testimonials {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  align-items: center;
-  gap: 18px;
-  margin-top: 44px;
-  padding-top: 27px;
-  border-top: 1px solid var(--line);
-}
-
-.testimonials-heading h3 {
-  margin: 6px 0 0;
-  font-family: var(--font-display);
-  font-size: 22px;
-}
-
-.testimonial-card {
-  display: flex;
-  min-height: 73px;
-  align-items: center;
-  gap: 13px;
-  padding: 13px 15px;
-  border: 1px solid var(--line);
-  background: rgb(255 255 255 / 62%);
-}
-
-.testimonial-card > span {
-  display: grid;
-  width: 30px;
-  height: 30px;
-  flex: 0 0 30px;
-  place-items: center;
-  border-radius: 50%;
-  background: #e8edde;
-  color: var(--green);
-}
-
-.testimonial-card b,
-.testimonial-card small {
-  display: block;
-}
-
-.testimonial-card b {
-  color: var(--forest);
-  font-size: 10px;
-}
-
-.testimonial-card small {
-  margin-top: 3px;
-  color: var(--muted);
-  font-size: 9px;
-}
-
 .video-frame {
   overflow: hidden;
   background: #14251e;
@@ -2645,14 +2592,6 @@ video:focus-visible {
     padding-left: 0;
   }
 
-  .testimonials {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .testimonials-heading {
-    grid-column: 1 / -1;
-  }
-
   .challenge-layout,
   .compare-layout {
     gap: 7%;
@@ -3239,17 +3178,6 @@ video:focus-visible {
     gap: 24px;
   }
 
-  .testimonials {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 28px;
-  }
-
-  .testimonials-heading {
-    grid-column: auto;
-    margin-bottom: 5px;
-  }
-
   .closing-cta {
     padding-block: 50px;
   }
@@ -3435,8 +3363,7 @@ video:focus-visible {
 
 .recognition-card,
 .engine-card,
-.process-card,
-.testimonial-card {
+.process-card {
   transition: border-color .3s ease, box-shadow .35s ease, transform .35s ease;
 }
 
@@ -3555,8 +3482,7 @@ video:focus-visible {
   .recognition-card,
   .engine-card,
   .process-card,
-  .chain-card,
-  .testimonial-card {
+  .chain-card {
     transition:
       transform .35s cubic-bezier(.2,.7,.2,1),
       box-shadow .35s ease,
@@ -4436,12 +4362,6 @@ main[data-landing-page] .video-error {
   background: rgb(0 35 37 / 88%);
   color: var(--white);
   font-size: 13px;
-}
-
-main[data-landing-page] .testimonial-card {
-  border: 1px solid #e7ece5;
-  border-radius: 16px;
-  background: var(--paper);
 }
 
 main[data-landing-page] .closing-cta {

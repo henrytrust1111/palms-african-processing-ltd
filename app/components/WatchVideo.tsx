@@ -23,7 +23,10 @@ export default function WatchVideo() {
     <div className="video-frame">
       <video
         ref={videoRef}
+        autoPlay
         controls={isPlaying}
+        muted
+        playsInline
         preload="none"
         poster="/assets/video-poster.jpg"
         onPlay={() => setIsPlaying(true)}
