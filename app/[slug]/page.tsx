@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import TeamProfiles, { type TeamGroup } from "../components/TeamProfiles";
 
 const pages: Record<
   string,
@@ -38,27 +38,7 @@ const pages: Record<
     title: "The people behind Palms African.",
     intro:
       "Experienced leaders and advisors who guide our work with farmers and buyers.",
-    sections: [
-      {
-        eyebrow: "MANAGEMENT TEAM",
-        title: "Leadership",
-        body: [
-          "Ezenwa Jeremiah — Founder & Managing Director. Jeremiah has extensive banking and financial expertise. Educated at Lagos Business School, Pan-Atlantic University and Nnamdi Azikiwe University.",
-          "Nnanke Ibor — With over 20 years of agricultural experience, he holds a Diploma in Agricultural Technology, an HND in Farm Management and Extension, and a PGD in Agricultural Economics and Extension.",
-          "Onyinyechi Nmecha — Excels in strategic planning; 2019 Best Graduating Student in Computer Science.",
-          "Nonso Ukadike — A skilled business analyst and project manager with over two years of tech experience, pursuing a Master’s degree at the University of South Wales, and a member of the Project Management Institute.",
-        ],
-      },
-      {
-        eyebrow: "ADVISORY BOARD",
-        title: "Guidance and perspective",
-        body: [
-          "Amala Umeike Esq — Amala, Stren and Blan Founding Partner; educated at Queen Mary University of London and University of Nigeria.",
-          "Dr Collins Igwe — Flutterwave’s inaugural CFO, ex Ernst & Young, KPMG. Educated at Oxford Brookes University (UK) and University of Lagos.",
-          "Dr Frank Ngwu — LBS Sustainability Centre Director, Associate Professor in Strategy, Governance and Risk. Educated at University of Manchester, Cardiff University and University of Lagos.",
-        ],
-      },
-    ],
+    sections: [],
   },
   "vision-and-values": {
     title: "A clear purpose. Six principles that guide our work.",
@@ -262,19 +242,81 @@ export async function generateMetadata({
 
 type CorporatePageProps = { params: Promise<{ slug: string }> };
 
-const teamPhotos: Record<string, string[]> = {
-  "MANAGEMENT TEAM": [
-    "/assets/landing-ezenwa-jeremiah.jpg",
-    "/assets/landing-nnanke-ibor.jpg",
-    "/assets/landing-onyinyechi-nmecha.jpg",
-    "/assets/landing-nonso-ukadike.jpg",
-  ],
-  "ADVISORY BOARD": [
-    "/assets/landing-amala-umeike-esq.jpg",
-    "/assets/landing-dr-collins-igwe.jpg",
-    "/assets/landing-dr-frank-ngwu.jpg",
-  ],
-};
+const teamGroups: TeamGroup[] = [
+  {
+    eyebrow: "MANAGEMENT TEAM",
+    title: "Leadership",
+    members: [
+      {
+        name: "Ezenwa Nwachukwu Jeremiah",
+        role: "Founder",
+        photo: "/assets/landing-ezenwa-jeremiah.jpg",
+        bio: [
+          "Ezenwa Nwachukwu Jeremiah is the Founder and Managing Director of Palms African Processing Ltd, where he leads the Company’s vision, strategy and growth. A Computer Science graduate of Nnamdi Azikiwe University, he has strengthened his business leadership through the Growth Enterprise Program at Pan-Atlantic University’s Enterprise Development Centre and the Entrepreneurship Development Program at Lagos Business School. An early career in banking and financial services gave him a solid grounding in finance and commercial discipline, which he now brings to building a thriving enterprise.",
+          "In September 2024, Ezenwa’s vision for the Company earned him first runner-up honours at the Orange Corners Nigeria Innovation Fund Pitch Day, along with a €20,000 grant.",
+        ],
+      },
+      {
+        name: "Amila Okon Etim",
+        role: "Chief Operating Officer, Palms African Processing Ltd",
+        photo: "/assets/Amilia.jpg",
+        bio: [
+          "Amila Okon Etim is the Chief Operating Officer of Palms African Processing Ltd. She is a driven, results-oriented operations leader with strong presentation skills and a passion for building high-performing teams.",
+          "Her career spans hospitality, food service and administration, with experience at Sundry Foods Ltd, and Abitto Global Services Limited. In each role she kept dependable records and ran day-to-day operations with discipline and attention to detail.",
+          "At Palms African, she leads daily operations and coordinates the teams, processes and partners that move harvests from farm to buyer. She is committed to a professional, welcoming workplace and to strong, lasting relationships with the farming communities the company serves.",
+        ],
+      },
+      {
+        name: "Ismail Adejonwo",
+        role: "Vice President, New Markets",
+        photo: "/assets/Ismail.jpg",
+        bio: [
+          "Ismail Adejonwo leads Palms African’s expansion into new markets and its grant and funding work. He has more than nine years of experience building and growing companies from the ground up in Nigeria.",
+          "He co-founded iWello, a health technology company that gave more than 10,000 low-income and rural patients across Nigeria affordable access to care. iWello was named one of the African Development Bank’s Top 100 Global Innovation Ideas and was selected for the TVC Labs accelerator.",
+          "Ismail also led marketing and business development at Adscafe, where he won a flagship contract with KFC Nigeria. He has written successful grant applications and investor materials. He holds a B.Ed. in Political Science from Lagos State University and is studying for an MBA at Quantic School of Business and Technology.",
+        ],
+      },
+      {
+        name: "Nonso Ukadike",
+        role: "Project Manager",
+        photo: "/assets/landing-nonso-ukadike.png",
+        bio: [
+          "Chinonso Ukadike is a skilled business analyst and project manager with over two years of tech experience, pursuing a Master’s degree at the University of South Wales, and a member of the Project Management Institute.",
+        ],
+      },
+    ],
+  },
+  {
+    eyebrow: "ADVISORY BOARD",
+    title: "Guidance and perspective",
+    members: [
+      {
+        name: "Amala Umeike Esq",
+        role: "Board Chair",
+        photo: "/assets/amala-umeike-esq.jpg",
+        bio: [
+          "Founding Partner at Amala, Stren and Blan; educated at Queen Mary University of London and the University of Nigeria.",
+        ],
+      },
+      {
+        name: "Dr Collins Igwe",
+        role: "Finance",
+        photo: "/assets/landing-dr-collins-igwe.jpeg",
+        bio: [
+          "Flutterwave’s inaugural CFO, formerly with Ernst & Young and KPMG. Educated at Oxford Brookes University (UK) and the University of Lagos.",
+        ],
+      },
+      {
+        name: "Dr Frank Ngwu",
+        role: "Strategy / Risk Management",
+        photo: "/assets/dr-frank-ngwu.jpg",
+        bio: [
+          "LBS Sustainability Centre Director and Associate Professor in Strategy, Governance and Risk. Educated at the University of Manchester, Cardiff University and the University of Lagos.",
+        ],
+      },
+    ],
+  },
+];
 
 function CorporatePageFallback() {
   return (
@@ -303,7 +345,10 @@ async function CorporatePageContent({ params }: CorporatePageProps) {
         <p>{page.intro}</p>
       </section>
       <div className="page-sections">
-        {page.sections.map((section, index) => (
+        {slug === "our-team" ? (
+          <TeamProfiles groups={teamGroups} />
+        ) : (
+          page.sections.map((section, index) => (
           <section className="editorial-row" key={section.eyebrow}>
             <span className="editorial-index">
               {String(index + 1).padStart(2, "0")}
@@ -312,40 +357,18 @@ async function CorporatePageContent({ params }: CorporatePageProps) {
               <span className="section-kicker">{section.eyebrow}</span>
               <h2>{section.title}</h2>
               {Array.isArray(section.body) ? (
-                <ul className={slug === "our-team" ? "team-list" : undefined}>
-                  {section.body.map((item, itemIndex) => {
-                    const photo =
-                      slug === "our-team"
-                        ? teamPhotos[section.eyebrow]?.[itemIndex]
-                        : undefined;
-
-                    return (
-                      <li
-                        className={
-                          slug === "our-team" ? "team-list-item" : undefined
-                        }
-                        key={item}
-                      >
-                        {photo && (
-                          <Image
-                            className="team-list-photo"
-                            src={photo}
-                            alt=""
-                            width={80}
-                            height={80}
-                          />
-                        )}
-                        <span>{item}</span>
-                      </li>
-                    );
-                  })}
+                <ul>
+                  {section.body.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               ) : (
                 <p>{section.body}</p>
               )}
             </div>
           </section>
-        ))}
+          ))
+        )}
       </div>
       <section className="inner-cta">
         <h2>Let’s grow the value chain together.</h2>
