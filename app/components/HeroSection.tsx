@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent, type RefObject } from "react";
+import { Fragment, useEffect, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent, type RefObject } from "react";
 
 const eyebrow = "Enabling agriculture, first for the farmers";
 const headlineLines = [
@@ -436,9 +436,12 @@ export default function HeroSection() {
         </h1>
         <p className="reference-hero-lead">
           {leadWords.map((word, index) => (
-            <span key={`${word}-${index}`} style={{ "--word-index": index } as CSSProperties}>
-              {word}{index < leadWords.length - 1 ? " " : ""}
-            </span>
+            <Fragment key={`${word}-${index}`}>
+              <span className="reference-hero-lead-word" style={{ "--word-index": index } as CSSProperties}>
+                {word}
+              </span>
+              {index < leadWords.length - 1 && <span className="reference-hero-lead-space" aria-hidden="true" />}
+            </Fragment>
           ))}
         </p>
         <div className="reference-hero-actions">

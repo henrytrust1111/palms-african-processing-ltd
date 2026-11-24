@@ -7242,8 +7242,9 @@ main[data-landing-page] .reference-hero-lead {
   font-size: clamp(.95rem, 1.28vw, 1.3rem);
   line-height: 1.7;
 }
-main[data-landing-page] .reference-hero-lead span { display: inline-block; opacity: 0; }
-main[data-landing-page] .reference-hero-copy.is-typed .reference-hero-lead span { animation: reference-word-in .7s cubic-bezier(.2,.8,.2,1) forwards; animation-delay: calc(var(--word-index) * 22ms); }
+main[data-landing-page] .reference-hero-lead-word { display: inline-block; opacity: 0; }
+main[data-landing-page] .reference-hero-lead-space { display: inline-block; width: .28em; }
+main[data-landing-page] .reference-hero-copy.is-typed .reference-hero-lead-word { animation: reference-word-in .7s cubic-bezier(.2,.8,.2,1) forwards; animation-delay: calc(var(--word-index) * 22ms); }
 main[data-landing-page] .reference-hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
 main[data-landing-page] .reference-hero-button {
   position: relative;
