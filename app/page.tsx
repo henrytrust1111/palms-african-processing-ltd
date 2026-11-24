@@ -1,23 +1,16 @@
-import Image from "next/image";
-import Link from "next/link";
 import LandingMotion from "./components/LandingMotion";
+import HeroSection from "./components/HeroSection";
 import LandingBanner from "./components/LandingBanner";
+import AboutSection from "./components/AboutSection";
 import ModelSection from "./components/ModelSection";
 import ValueChainSection from "./components/ValueChainSection";
 import ProcessSection from "./components/ProcessSection";
+import FocusCropsSection from "./components/FocusCropsSection";
 import CountUpNumber from "./components/CountUpNumber";
 import PartnersCarousel from "./components/PartnersCarousel";
 import RecognitionSection from "./components/RecognitionSection";
 import TractionInfographic from "./components/TractionInfographic";
 import WatchVideo from "./components/WatchVideo";
-
-const crops = [
-  ["🌴", "Oil palm"],
-  ["🫘", "Soybeans"],
-  ["🍫", "Cocoa"],
-  ["🥜", "Cashew nuts"],
-  ["🌱", "Sesame seeds"],
-];
 
 function SdgIcon({ number }: { number: string }) {
   if (number === "1") {
@@ -110,66 +103,11 @@ const sdgs = [
   ["12", "Responsible Consumption and Production"],
 ];
 
-const marketplaceUrl = "https://africanagrohub.com/";
-
 export default function Home() {
   return (
     <main data-landing-page>
       <LandingMotion />
-      <section className="hero" id="home">
-        <div className="hero-copy">
-          <span className="eyebrow">
-            ENABLING AGRICULTURE, FIRST FOR THE FARMERS
-          </span>
-          <h1>
-            Building the supply chain behind Africa’s <em>agro economy</em>
-          </h1>
-          <p>
-            Palms African turns smallholder harvests into reliable industrial
-            supply, connecting the farmer who grows the crop to the factory that
-            needs it.
-          </p>
-          <div className="hero-actions">
-            <Link className="button button-primary" href="/what-we-do">
-              Learn more <span aria-hidden="true">↗︎</span>
-            </Link>
-            <Link className="button button-quiet" href="/contact">
-              Contact us
-            </Link>
-          </div>
-          <div className="hero-caption">
-            <span className="hero-caption-mark" aria-hidden="true">
-              ✳
-            </span>
-            <span>From the farmer to the factory.</span>
-          </div>
-        </div>
-        <div className="hero-visual">
-          <div className="hero-photo">
-            <Image
-              src="/assets/palm-plantation.jpeg"
-              alt="Oil palms growing in a Nigerian plantation"
-              fill
-              priority
-              quality={85}
-              sizes="(max-width: 760px) 100vw, 52vw"
-            />
-          </div>
-          <div className="hero-photo-shade" />
-          <div className="hero-location">
-            <span className="location-dot" />
-            <span>
-              Palms African
-              <br />
-              Nigeria
-            </span>
-          </div>
-          <div className="hero-image-caption">
-            <span>Rooted in production</span>
-            <span>Built to scale</span>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       <section
         className="proof-section"
@@ -226,81 +164,11 @@ export default function Home() {
 
       <ModelSection />
 
-      <section className="focus-crops-section" aria-labelledby="focus-crops-title">
-        <div className="section-container">
-          <div className="crops-feature">
-            <div className="crops-copy">
-              <span className="eyebrow" id="focus-crops-title">OUR FOCUS CROPS</span>
-              <div className="crop-list">
-                {crops.map(([icon, crop]) => (
-                  <span key={crop}>
-                    <i aria-hidden="true">{icon}</i>
-                    {crop}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <picture className="crops-visual">
-              <source media="(prefers-reduced-motion: reduce)" srcSet="/assets/focus-crops-flow.jpg" />
-              <Image
-                src="/assets/focus-crops-flow.gif"
-                alt="Oil palm, soybeans, cocoa, cashew nuts, sesame seeds, ginger and hibiscus moving from farmers to processing, marketplace and buyers."
-                width={640}
-                height={520}
-                unoptimized
-              />
-            </picture>
-          </div>
-        </div>
-      </section>
+      <FocusCropsSection />
 
       <ProcessSection />
 
-      <section
-        className="intro-section section-container"
-        id="about"
-        data-reveal
-      >
-        <div className="intro-copy">
-          <span className="eyebrow">WHO WE ARE</span>
-          <h2>
-            Making African agriculture more productive and more profitable
-          </h2>
-          <p>
-            Palms African Processing Ltd is an agritech company in Lagos,
-            Nigeria. We finance smallholder farmers, process their harvests and
-            link them to industrial buyers through a digital marketplace,
-            creating value for farmers, buyers and investors at once.
-          </p>
-          <p>
-            Our mission is to de-risk the African smallholder value chain,
-            converting fragmented, vulnerable rural yields into verified,
-            institutional-grade raw supply for global food and oleochemical
-            processors.
-          </p>
-          <Link className="button button-primary" href="/our-story">
-            Learn more <span aria-hidden="true">↗︎</span>
-          </Link>
-        </div>
-        <div className="intro-card">
-          <div className="intro-card-image">
-            <Image
-              src="/assets/landing-founder.jpg"
-              alt="Ezenwa Nwachukwu Jeremiah, founder and Managing Director of Palms African"
-              fill
-              sizes="(max-width: 760px) 100vw, 42vw"
-            />
-          </div>
-          <div className="intro-card-note">
-            <span className="intro-card-brand">PALMS AFRICAN</span>
-            <p className="intro-card-tagline">Rooted in production.</p>
-            <strong className="intro-card-founder">
-              Ezenwa Jeremiah, Founder
-            </strong>
-            <span className="intro-card-scale">Built to scale.</span>
-          </div>
-        </div>
-      </section>
+      <AboutSection />
 
       <ValueChainSection />
 

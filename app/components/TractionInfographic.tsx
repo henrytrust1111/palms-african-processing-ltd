@@ -36,7 +36,7 @@ export default function TractionInfographic() {
           />
           <span aria-hidden="true">Click to enlarge</span>
         </button>
-        <figcaption>Nigeria's smallholder resource gap. Tap or click to enlarge.</figcaption>
+        <figcaption>Nigeria&apos;s smallholder resource gap. Tap or click to enlarge.</figcaption>
       </figure>
 
       <dialog

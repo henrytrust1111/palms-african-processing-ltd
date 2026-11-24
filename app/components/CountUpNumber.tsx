@@ -22,15 +22,15 @@ export default function CountUpNumber({
     const element = numberRef.current;
     if (!element) return;
 
+    let frame = 0;
     const motionPreference = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     );
     if (motionPreference.matches) {
-      setCount(value);
-      return;
+      frame = requestAnimationFrame(() => setCount(value));
+      return () => cancelAnimationFrame(frame);
     }
 
-    let frame = 0;
     let started = false;
     let observer: IntersectionObserver | undefined;
 

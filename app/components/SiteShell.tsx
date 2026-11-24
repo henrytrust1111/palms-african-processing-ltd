@@ -138,12 +138,21 @@ export function Header() {
             </div>
           ))}
           <a
-            className="nav-cta"
+            className="nav-cta nav-marketplace"
             href={marketplaceUrl}
             target="_blank"
             rel="noreferrer"
           >
-            Marketplace <span aria-hidden="true">↗︎</span>
+            <span className="nav-marketplace-shine" aria-hidden="true" />
+            <span className="nav-marketplace-label">Marketplace</span>
+            <span className="nav-marketplace-chip" aria-hidden="true">
+              <svg className="arrow-one" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17 17 7M8 7h9v9" />
+              </svg>
+              <svg className="arrow-two" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17 17 7M8 7h9v9" />
+              </svg>
+            </span>
           </a>
         </nav>
       </div>

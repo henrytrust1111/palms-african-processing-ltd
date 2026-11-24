@@ -37,6 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${newsreader.variable} ${plusJakartaSans.variable}`}
+      data-scroll-behavior="smooth"
     >
       <body>
         <Header />
