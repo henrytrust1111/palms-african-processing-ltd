@@ -1972,11 +1972,13 @@ video:focus-visible {
 }
 
 .team-photo-dialog {
-  position: relative;
+  position: fixed;
+  inset: 0;
+  box-sizing: border-box;
   width: min(94vw, 1400px);
-  height: min(92vh, 1000px);
+  height: min(92dvh, 1000px);
   max-width: calc(100vw - 20px);
-  max-height: calc(100vh - 20px);
+  max-height: calc(100dvh - 20px);
   margin: auto;
   padding: 56px 18px 18px;
   overflow: hidden;
@@ -1986,6 +1988,10 @@ video:focus-visible {
   background: var(--forest);
   box-shadow: 0 24px 80px rgb(0 0 0 / 35%);
   animation: team-dialog-enter .32s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.team-photo-dialog[open] {
+  display: block;
 }
 
 .team-photo-dialog::backdrop {
@@ -5614,11 +5620,15 @@ main[data-landing-page] .traction-figure figcaption {
 
 main[data-landing-page] .traction-image-dialog {
   position: fixed;
+  inset: 0;
+  box-sizing: border-box;
   width: min(92vw, 1200px);
   max-width: none;
-  max-height: 92vh;
+  height: min(92dvh, 1000px);
+  max-height: calc(100dvh - 20px);
+  margin: auto;
   padding: 54px 16px 16px;
-  overflow: auto;
+  overflow: hidden;
   border: 1px solid rgb(255 255 255 / 24%);
   border-radius: 16px;
   background: #102d2b;
@@ -5639,7 +5649,7 @@ main[data-landing-page] .traction-image-dialog img {
   display: block;
   width: auto;
   max-width: 100%;
-  max-height: calc(92vh - 72px);
+  max-height: calc(100dvh - 100px);
   object-fit: contain;
   border-radius: 8px;
 }
