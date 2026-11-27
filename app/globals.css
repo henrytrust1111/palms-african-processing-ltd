@@ -6595,6 +6595,7 @@ main[data-landing-page] .value-chain-card h3 {
 }
 
 main[data-landing-page] .value-chain-title-char { display: inline-block; }
+main[data-landing-page] .value-chain-title-word { display: inline-block; white-space: nowrap; }
 main[data-landing-page] .value-chain-card:hover .value-chain-title-char { animation: value-chain-wave .8s calc(var(--char-index) * 45ms) cubic-bezier(.2,.8,.2,1); }
 
 main[data-landing-page] .value-chain-card > p {
@@ -6606,7 +6607,7 @@ main[data-landing-page] .value-chain-card > p {
   line-height: 1.75;
 }
 
-main[data-landing-page] .value-chain-description-word { display: inline-block; }
+main[data-landing-page] .value-chain-description-word { display: inline-block; margin-right: .28em; }
 main[data-landing-page] .value-chain-card:hover .value-chain-description-word { animation: value-chain-words .7s calc(var(--word-index) * 28ms + .15s) cubic-bezier(.2,.8,.2,1) backwards; }
 
 main[data-landing-page] .value-chain-connector {
@@ -6866,9 +6867,10 @@ main[data-landing-page] .process-showcase-card h3 {
 }
 
 main[data-landing-page] .process-title-char { display: inline-block; }
+main[data-landing-page] .process-title-word { display: inline-block; white-space: nowrap; }
 main[data-landing-page] .process-showcase-card:hover .process-title-char { animation: process-wave .8s calc(var(--char-index) * 40ms) cubic-bezier(.2,.8,.2,1); }
 main[data-landing-page] .process-showcase-card > p { margin: 0; color: inherit; font-family: var(--font-sans); font-size: clamp(14px, 1vw, 16px); line-height: 1.75; }
-main[data-landing-page] .process-description-word { display: inline-block; }
+main[data-landing-page] .process-description-word { display: inline-block; margin-right: .28em; }
 main[data-landing-page] .process-showcase-card:hover .process-description-word { animation: process-words .7s calc(var(--word-index) * 26ms + .15s) cubic-bezier(.2,.8,.2,1) backwards; }
 
 main[data-landing-page] .process-vine { position: absolute; z-index: 3; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }

@@ -87,7 +87,7 @@ const pages: Record<
       {
         eyebrow: "03 · DIGITAL MARKETPLACE",
         title: "A clearer route to buyers.",
-        body: "Producers connect directly to industrial buyers, with a shorter, clearer chain. Our focus crops are oil palm, soybeans, cocoa, cashew nuts and sesame seeds.",
+        body: "Producers connect directly to industrial buyers, with a shorter, clearer chain. Our focus crops are oil palm, soybeans, cocoa, cashew nuts, sesame seeds, ginger and hibiscus.",
       },
     ],
   },
@@ -295,7 +295,7 @@ const teamGroups: TeamGroup[] = [
         role: "Board Chair",
         photo: "/assets/amala-umeike-esq.jpg",
         bio: [
-          "Founding Partner at Amala, Stren and Blan; educated at Queen Mary University of London and the University of Nigeria.",
+          "Founding Partner at Stren and Blan; educated at Queen Mary University of London and the University of Nigeria.",
         ],
       },
       {

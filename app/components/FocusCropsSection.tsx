@@ -8,6 +8,8 @@ const crops = [
   { icon: "🍫", label: "Cocoa" },
   { icon: "🥜", label: "Cashew nuts" },
   { icon: "🌱", label: "Sesame seeds" },
+  { icon: "\u{1F33F}", label: "Ginger" },
+  { icon: "\u{1F33A}", label: "Hibiscus" },
 ];
 
 export default function FocusCropsSection() {
@@ -30,7 +32,7 @@ export default function FocusCropsSection() {
     const previous = previousCropRef.current;
     const stepsForward = (index - previous + crops.length) % crops.length;
     previousCropRef.current = index;
-    setOrbitAngle((angle) => angle + stepsForward * 72);
+    setOrbitAngle((angle) => angle + stepsForward * (360 / crops.length));
     setSelected(index);
   }, []);
 

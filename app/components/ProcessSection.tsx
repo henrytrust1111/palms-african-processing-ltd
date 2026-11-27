@@ -308,16 +308,19 @@ export default function ProcessSection() {
                 <span><b>{number}</b><b aria-hidden="true">{number}</b></span>
               </div>
               <h3>
-                {title.split("").map((character, charIndex) => (
-                  <span className="process-title-char" key={charIndex} style={{ "--char-index": charIndex } as CSSProperties}>
-                    {character === " " ? " " : character}
+                {title.split(" ").map((word, wordIndex, words) => (
+                  <span className="process-title-word" key={`${wordIndex}-${word}`}>
+                    {word.split("").map((character, charIndex) => (
+                      <span className="process-title-char" key={charIndex} style={{ "--char-index": charIndex } as CSSProperties}>{character}</span>
+                    ))}
+                    {wordIndex < words.length - 1 ? " " : ""}
                   </span>
                 ))}
               </h3>
               <p>
-                {description.split(" ").map((word, wordIndex, words) => (
+                {description.split(" ").map((word, wordIndex) => (
                   <span className="process-description-word" key={`${wordIndex}-${word}`} style={{ "--word-index": wordIndex } as CSSProperties}>
-                    {word}{wordIndex < words.length - 1 ? " " : ""}
+                    {word}
                   </span>
                 ))}
               </p>

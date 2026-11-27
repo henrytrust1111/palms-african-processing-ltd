@@ -274,16 +274,19 @@ export default function ValueChainSection() {
                   ))}
               </div>
               <h3>
-                {partner.title.split("").map((character, index) => (
-                  <span className="value-chain-title-char" key={index} style={{ "--char-index": index } as CSSProperties}>
-                    {character === " " ? " " : character}
+                {partner.title.split(" ").map((word, wordIndex, words) => (
+                  <span className="value-chain-title-word" key={`${wordIndex}-${word}`}>
+                    {word.split("").map((character, index) => (
+                      <span className="value-chain-title-char" key={index} style={{ "--char-index": index } as CSSProperties}>{character}</span>
+                    ))}
+                    {wordIndex < words.length - 1 ? " " : ""}
                   </span>
                 ))}
               </h3>
               <p>
-                {partner.description.split(" ").map((word, index, words) => (
+                {partner.description.split(" ").map((word, index) => (
                   <span className="value-chain-description-word" key={`${index}-${word}`} style={{ "--word-index": index } as CSSProperties}>
-                    {word}{index < words.length - 1 ? " " : ""}
+                    {word}
                   </span>
                 ))}
               </p>
