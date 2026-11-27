@@ -295,7 +295,7 @@ const teamGroups: TeamGroup[] = [
         role: "Board Chair",
         photo: "/assets/amala-umeike-esq.jpg",
         bio: [
-          "Founding Partner at Amala, Stren and Blan; educated at Queen Mary University of London and the University of Nigeria.",
+          "Founding Partner at Stren and Blan; educated at Queen Mary University of London and the University of Nigeria.",
         ],
       },
       {
