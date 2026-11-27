@@ -87,7 +87,7 @@ const pages: Record<
       {
         eyebrow: "03 · DIGITAL MARKETPLACE",
         title: "A clearer route to buyers.",
-        body: "Producers connect directly to industrial buyers, with a shorter, clearer chain. Our focus crops are oil palm, soybeans, cocoa, cashew nuts and sesame seeds.",
+        body: "Producers connect directly to industrial buyers, with a shorter, clearer chain. Our focus crops are oil palm, soybeans, cocoa, cashew nuts, sesame seeds, ginger and hibiscus.",
       },
     ],
   },
